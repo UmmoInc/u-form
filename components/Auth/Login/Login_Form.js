@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Link from "next/link";
 import {
   authentication,
-  signInWithPhoneNumber,
+  
 } from "../../../middleware/firebase";
-import { RecaptchaVerifier, getAuth} from "firebase/auth";
+import { RecaptchaVerifier, getAuth,signInWithPhoneNumber} from "firebase/auth";
 
 export default function Login_Form() {
   // country code
@@ -19,40 +19,28 @@ export default function Login_Form() {
     const auth = getAuth();
     console.log("Starting debugging");
     if (phoneNumber.length >= 7) {
-      // window.recaptchaVerifier = new RecaptchaVerifier(
-      //   "sign-in-button",
-      //   {
-      //     size: "invisible",
-      //     callback: (response) => {
-      //       console.log('Response debugging')
-      //       console.log(response);
-      //       // onSignInSubmit();
-      //     },
-      //   },
-      //   auth
-      // );
       window.recaptchaVerifier = new RecaptchaVerifier(
         "sign-in-button",
         {
           size: "invisible",
           callback: (response) => {
             console.log('Response debugging')
-            // reCAPTCHA solved, allow signInWithPhoneNumber.
+            console.log(response);
+            // onSignInSubmit();
           },
         },
         auth
       );
-      console.log("Starting process for debuging");
-      console.log(window.recaptchaVerifier);
-
-      // let appVerifier = window.recaptchaVerifier;
-      // signInWithPhoneNumber(authentication, phoneNumber)
-      //   .then((confirmationResult) => {
-      //     window.confirmationResult = confirmationResult;
-      //   })
-      //   .catch((error) => {
-      //     console.log(error);
-      //   });
+      
+      //Send OTP
+      let appVerifier = window.recaptchaVerifier;
+      signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+        .then((confirmationResult) => {
+          window.confirmationResult = confirmationResult;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
     console.log("Ending debugging");
   };
