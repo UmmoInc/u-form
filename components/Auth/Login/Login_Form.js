@@ -46,10 +46,10 @@ export default function Login_Form() {
   };
 
   return (
-    <div className="bg-white rounded-2xl px-4 md:px-8 py-8 md:py-12 shadow-sm border border-[#006592] border-opacity-25 space-y-6">
+    <div className="bg-white rounded-2xl px-4 md:px-8 py-16 md:py-32  shadow-sm border border-[#006592] border-opacity-25">
       {/*Login */}
       <div>
-        <p className="font-[500] text-2xl text-black ">Login</p>
+        <p className="font-[500] text-2xl text-black pb-6 md:pb-12">Login</p>
       </div>
 
       {/*Form */}
@@ -69,7 +69,7 @@ export default function Login_Form() {
               id="Username"
               name="Username"
               value={phoneNumber}
-              className="border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white "
+              className="border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-md border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white "
             />
           </div>
 
@@ -77,14 +77,14 @@ export default function Login_Form() {
           <button
             id="sign-in-button"
             type="submit"
-            className="bg-[#0079B0] w-full py-2  font-medium rounded-xl text-[#E6F3F9] active:bg-gray-800"
+            className="bg-[#0079B0] w-full py-2  font-medium rounded-md text-[#E6F3F9] active:bg-gray-800"
           >
             <p>Continue </p>
           </button>
         </form>
       </div>
       {/* */}
-      <div className="font-medium text-[#0079B0] space-x-2 text-sm w-full flex justify-center cursor-pointer ">
+      <div className="font-medium text-[#0079B0] space-x-4 mt-12 text-sm w-full flex justify-center cursor-pointer ">
         <p className="hover:underline">Terms of Use</p>
         <p className="hover:underline">Privacy Policy</p>
       </div>
