@@ -13,6 +13,16 @@ export default function Login_Form() {
   const [phoneNumber, setPhoneNumber] = useState(countrycode);
   const [expandForm, setExpandForm] = useState(false);
 
+  //Show OTP Form 
+  const [otpForm, setOtpForm] = useState(false)
+ 
+  const [OTP, setOTP] = useState('')
+
+
+  function switchForms() {
+    setOtpForm(true)
+  }
+
   //Request OTP
   const requestOTP = (e) => {
     e.preventDefault();
@@ -24,7 +34,6 @@ export default function Login_Form() {
         {
           size: "invisible",
           callback: (response) => {
-            console.log('Response debugging')
             console.log(response);
             // onSignInSubmit();
           },
@@ -37,16 +46,69 @@ export default function Login_Form() {
       signInWithPhoneNumber(auth, phoneNumber, appVerifier)
         .then((confirmationResult) => {
           window.confirmationResult = confirmationResult;
+          console.log('OTP sent');
+          setOtpForm(true)
         })
         .catch((error) => {
           console.log(error);
         });
     }
-    console.log("Ending debugging");
+
+
+
+    
   };
 
+//Verify OTP
+    const verifyOTP = (e) =>{
+      let otp = e.target.value;
+      setOTP(otp);
+
+      if(otp.length === 6){
+        console.log(otp)
+        let confirmationResult = window.confirmationResult;
+        confirmationResult.confirm(otp).then((result) => {
+          //User signed in successfully
+          const user = result.user;
+          console.log('user created')
+          setOtpForm(false)
+          //..
+        }).catch((error) => {
+          //User couldnt validate
+        })
+      }
+    }
   return (
-    <div className="bg-white rounded-2xl px-4 md:px-8 py-8 md:py-12 shadow-sm border border-[#006592] border-opacity-25 space-y-6">
+    <div>
+    {otpForm? 
+      <div>
+        
+        <div className="flex w-full font-semibold text-lg justify-center space-y-4 items-center  flex-col">
+          <p>Verify Your Phone Number</p>
+          <p className=" text-base font-normal tracking-wider text-[#606F7B]">Enter your OTP code here</p>
+        </div>
+        <div className="flex items-center justify-center w-full">
+          <form className="w-8/12">
+          <div className="w-full flex items-center justify-center py-3 ">
+            <input type={'text'} className='bg-[#B0D9EC] rounded-md py-2 outline-none font-bold px-5  shadow-inner w-full'value={OTP} onChange={verifyOTP}  />
+          </div>
+            <div>
+              <button
+                id="sign-in-button"
+                type="submit"
+                className="bg-[#0079B0] w-full py-2  font-medium rounded-xl text-[#E6F3F9] active:bg-gray-800"
+                >
+                  <p>Continue </p>
+              </button>
+            </div>
+          </form>
+        </div>
+        
+      </div>
+
+      :
+      
+      <div className="bg-white relative rounded-2xl px-4 md:px-8 py-8 md:py-12 shadow-sm border border-[#006592] border-opacity-25 space-y-6">
       {/*Login */}
       <div>
         <p className="font-[500] text-2xl text-black ">Login</p>
@@ -74,7 +136,7 @@ export default function Login_Form() {
           </div>
 
           {/*Login Button */}
-          <button
+          <button 
             id="sign-in-button"
             type="submit"
             className="bg-[#0079B0] w-full py-2  font-medium rounded-xl text-[#E6F3F9] active:bg-gray-800"
@@ -88,6 +150,12 @@ export default function Login_Form() {
         <p className="hover:underline">Terms of Use</p>
         <p className="hover:underline">Privacy Policy</p>
       </div>
+
+      {/*Verification Screen - Pop-Up */}
+      
+    </div>}
+    
+        
     </div>
   );
 }

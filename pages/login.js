@@ -11,7 +11,7 @@ export default function Login() {
 
   return (
 
-      <div className='h-screen w-full bg-gray-200'>
+      <div className='h-screen w-full bg-[#E6F3F9]'>
       <Head>
         <title>u-Form</title>
         <meta name="description" content="Online Shopping Site" />
