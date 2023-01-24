@@ -2,7 +2,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Login_Form from '../components/Auth/Login/Login_Form'
 import Header_sm from '../components/Home/Header/Header_sm'
-
+import { authentication } from '../middleware/firebase'
+import {RecaptchaVerifier} from 'firebase/auth'
 //Logo
 import Logo from '../assets/Logo.png'
 
@@ -18,7 +19,7 @@ export default function Login() {
       </Head>
       
      
-      <main className='h-screen justify-center pt-24  w-full space-y-8 flex-col flex items-center'>
+      <main className='h-screen justify-center md:pt-48 pt-24  w-full space-y-8 flex-col flex items-center'>
             <div className='flex w-full justify-center text-2xl font-bold '>
                 <Image src={Logo} width={45} objectFit='contain' />
             </div>
