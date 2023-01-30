@@ -14,22 +14,22 @@ export default function Register_Form() {
       <div>
         <form className='space-y-4'>
         
-          {/*Cellphone */}
+          {/*First Name */}
           <div className='relative flex text-base w-full flex-col'>
-            <label htmlFor='Username' className='font-medium  flex items-center absolute -top-3 left-5 px-2 text-[#0079B0] bg-white'>Cellphone</label>
-            <input type={'text'} placeholder='7*******' id='Username' name='Username' className='border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#006592] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white '/>
+            <label htmlFor='firstName' className='font-medium  flex items-center absolute -top-3 left-5 px-2 text-[#0079B0] bg-white'>*First Name</label>
+            <input type={'text'} placeholder='Cembe' id='Username' name='firstName' className='border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#006592] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white '/>
           </div>
 
-          {/*Password */}
+          {/*Surname */}
           <div className='relative flex text-base w-full flex-col'>
-            <label htmlFor='Password' className='font-medium  flex items-center absolute -top-3 left-5 px-2 text-[#0079B0] bg-white'>Password</label>
-            <input type={'password'} placeholder='*********' id='Password' name='Password' className='border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white '/>
+            <label htmlFor='surname' className='font-medium  flex items-center absolute -top-3 left-5 px-2 text-[#0079B0] bg-white'>*Surname</label>
+            <input type={'text'} placeholder='Shlahla' id='surname' name='surname' className='border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white '/>
           </div>
 
-          {/*Confirm_Password */}
+          {/*Email */}
           <div className='relative flex text-base w-full flex-col'>
-            <label htmlFor='Confirm_Password' className='font-medium  flex items-center absolute -top-3 left-5 px-2 text-[#0079B0] bg-white'>Confirm Password</label>
-            <input type={'password'} placeholder='*********' id='Confirm_Password' name='Confirm_Password' className='border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white '/>
+            <label htmlFor='email' className='font-medium  flex items-center absolute -top-3 left-5 px-2 text-[#0079B0] bg-white'>Email</label>
+            <input type={'email'} placeholder='cembe@shlahla.com' id='Confirm_Password' name='Confirm_Password' className='border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white '/>
           </div>
 
           <div className='flex space-x-3 '>
@@ -42,14 +42,8 @@ export default function Register_Form() {
             <p>Register </p>
           </button>
 
-          {/*Register Link */}
-          <div className='   w-full flex justify-center cursor-pointer space-x-1'>
-            <p className='text-[#606F7B]'>Registered already?</p>
-            <Link href={'./login'} >
-                <p className='hover:underline font-bold text-[#0079B0]'>Login</p>
-            </Link>
-            
-          </div>
+          
+          
 
         </form>
       </div>
