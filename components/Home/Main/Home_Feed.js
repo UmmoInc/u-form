@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import Home_Test from '../../Test/Home_Test'
 
@@ -26,7 +27,9 @@ export default function Home_Feed() {
                 </ul>
             </div>
             <div>
-                <Home_Test />
+                <Link href={'../../test/about'} >
+                    <Home_Test />
+                </Link>
             </div>
             
         </div>
