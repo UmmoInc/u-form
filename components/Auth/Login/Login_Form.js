@@ -7,7 +7,7 @@ import {
 import { RecaptchaVerifier, getAuth, signInWithPhoneNumber } from "firebase/auth";
 import { useRouter } from "next/router";
 
-export default function Login_Form({users}) {
+export default function Login_Form({ users }) {
   // country code
   const countrycode = "+268";
   // phone number state
@@ -27,7 +27,11 @@ export default function Login_Form({users}) {
 
   function switchForms() {
     setOtpForm(true)
-  }
+  };
+
+
+
+
 
   const router = useRouter();
 
@@ -55,6 +59,7 @@ export default function Login_Form({users}) {
       signInWithPhoneNumber(auth, phoneNumber, appVerifier)
         .then((confirmationResult) => {
           window.confirmationResult = confirmationResult;
+          //
           console.log('OTP sent');
           setOtpForm(true)
         })
@@ -70,46 +75,69 @@ export default function Login_Form({users}) {
 
   //Verify OTP
   const verifyOTP = (e) => {
+
     let otp = e.target.value;
     setOTP(otp);
 
     if (otp.length === 6) {
       setVerifying(true)
       console.log(otp)
+      const phone_number = phoneNumber.slice(4);
+      const token = window.confirmationResult.verificationId;
 
+      let data = {
+        phone_number, token
+      }
+      console.log(data);
+      // console.log(`The set value of title is ${data}`)
+      
+
+      //Verification of OTP 
       let confirmationResult = window.confirmationResult;
       confirmationResult.confirm(otp).then((result) => {
         //User signed in successfully
         const user = result.user;
-        console.log('user created')
-
-        //Registered User
-        const selectedUser = sds.users.find((user) =>user.cellphone === phoneNumber);
-
-        //Route user if registered to home, else to register
-        if (!selectedUser){
-          router.push('./')
-        } else {
-          router.push('/register')
-        }
-
-
-        ;
-        // //Redirect
-        // useEffect(() => {
-        //   router.push('./');
-        //   return () => {
-        //     console.log('home')
-        //   }
-        // }, [third])
-
+        console.log('user created firebase')
+        
 
         //..
       }).catch((error) => {
         //User couldnt validate
-      })
+      });
+
+      //Send user data to Mongodb
+      fetch(
+        "https://ummo-form-auth.herokuapp.com/api/v1/auth/validate",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      ).then(async (response) => {
+        const result = await response.json()
+        console.log(result);
+        if (result.status === 1) {
+          console.log("SUCCESS",);
+          console.log(result);
+          router.push('/register')
+
+        }
+        else {
+          console.log("FAILED", result.message);
+        }
+        //   res.redirect(307);
+      });
+
     }
-  }
+
+  };
+
+
+
+
+
   return (
     <div>
       {otpForm ?
@@ -125,21 +153,21 @@ export default function Login_Form({users}) {
                 <input type={'text'} className='bg-[#B0D9EC] rounded-md py-2 outline-none font-bold px-5  shadow-inner w-full' value={OTP} onChange={verifyOTP} />
               </div>
               <div>
-              {verifying? <button
+                {verifying ? <button
 
-                className="bg-[#0079B0] opacity-60 w-full py-2  font-medium rounded-xl text-[#E6F3F9] active:bg-gray-800"
-              >
-               <p>Verifying...</p> 
-              </button>
-              :
-              <Link href={'../'}>
-              <button className="bg-[#0079B0]  w-full py-2  font-medium rounded-xl text-[#E6F3F9] active:bg-gray-800"
+                  className="bg-[#0079B0] opacity-60 w-full py-2  font-medium rounded-xl text-[#E6F3F9] active:bg-gray-800"
                 >
-                   <p>Verify </p> 
+                  <p>Verifying...</p>
                 </button>
-              </Link>
-              }
-                
+                  :
+                  <Link href={'../'}>
+                    <button className="bg-[#0079B0]  w-full py-2  font-medium rounded-xl text-[#E6F3F9] active:bg-gray-800"
+                    >
+                      <p>Verify </p>
+                    </button>
+                  </Link>
+                }
+
               </div>
             </form>
           </div>
