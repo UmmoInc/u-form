@@ -1,7 +1,13 @@
 import React from 'react'
 import Link from 'next/link'
+import { useSelector } from 'react-redux'
+import { getResponse } from '../../../slices/basketSlice'
 
 export default function Register_Form() {
+
+  const response = useSelector(getResponse)
+  console.log(response);
+
   return (
     <div className='bg-white rounded-2xl px-4 md:px-8 py-8 md:py-12 shadow-sm border border-[#006592] border-opacity-25 space-y-6'>
 
@@ -16,20 +22,23 @@ export default function Register_Form() {
         
           {/*First Name */}
           <div className='relative flex text-base w-full flex-col'>
-            <label htmlFor='firstName' className='font-medium  flex items-center absolute -top-3 left-5 px-2 text-[#0079B0] bg-white'>*First Name</label>
-            <input type={'text'} placeholder='Cembe' id='Username' name='firstName' className='border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#006592] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white '/>
+            <label htmlFor='firstName' className='font-medium  flex items-center absolute -top-3 left-5 px-2 text-[#0079B0] bg-white'>First Name</label>
+            <input type={'text'} 
+             id='Username' 
+             name='firstName' 
+             className='border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#006592] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white '/>
           </div>
 
           {/*Surname */}
           <div className='relative flex text-base w-full flex-col'>
-            <label htmlFor='surname' className='font-medium  flex items-center absolute -top-3 left-5 px-2 text-[#0079B0] bg-white'>*Surname</label>
-            <input type={'text'} placeholder='Shlahla' id='surname' name='surname' className='border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white '/>
+            <label htmlFor='surname' className='font-medium  flex items-center absolute -top-3 left-5 px-2 text-[#0079B0] bg-white'>Surname</label>
+            <input type={'text'}  id='surname' name='surname' className='border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white '/>
           </div>
 
           {/*Email */}
           <div className='relative flex text-base w-full flex-col'>
             <label htmlFor='email' className='font-medium  flex items-center absolute -top-3 left-5 px-2 text-[#0079B0] bg-white'>Email</label>
-            <input type={'email'} placeholder='cembe@shlahla.com' id='Confirm_Password' name='Confirm_Password' className='border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white '/>
+            <input type={'email'} id='Confirm_Password' name='Confirm_Password' className='border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white '/>
           </div>
 
           <div className='flex space-x-3 '>

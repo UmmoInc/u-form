@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import {
-  authentication,
-
-} from "../../../middleware/firebase";
 import { RecaptchaVerifier, getAuth, signInWithPhoneNumber } from "firebase/auth";
 import { useRouter } from "next/router";
+import {  useDispatch  } from "react-redux"
+import { addToResponse } from "../../../slices/basketSlice";
 
 export default function Login_Form({ users }) {
   // country code
@@ -24,23 +22,28 @@ export default function Login_Form({ users }) {
   //Loader
   const [loading, setLoading] = useState(false)
 
-
   function switchForms() {
     setOtpForm(true)
   };
 
+  const dispatch = useDispatch();
 
+  // const addResponseToStore = () => {
+  //     const resposeStatus ={
 
+  //     }
+  // }
 
-
+  //Router for redirecting
   const router = useRouter();
 
   //Request OTP
   const requestOTP = (e) => {
     setLoading(true)
     e.preventDefault();
+
+    //OTP & RecapthcaVerifier
     const auth = getAuth();
-    console.log("Starting debugging");
     if (phoneNumber.length >= 7) {
       window.recaptchaVerifier = new RecaptchaVerifier(
         "sign-in-button",
@@ -67,15 +70,12 @@ export default function Login_Form({ users }) {
           console.log(error);
         });
     }
-
-
-
-
   };
 
   //Verify OTP
   const verifyOTP = (e) => {
 
+    //Grab OTP
     let otp = e.target.value;
     setOTP(otp);
 
@@ -85,12 +85,11 @@ export default function Login_Form({ users }) {
       const phone_number = phoneNumber.slice(4);
       const token = window.confirmationResult.verificationId;
 
+      //Initializing User Data
       let data = {
         phone_number, token
       }
       console.log(data);
-      // console.log(`The set value of title is ${data}`)
-      
 
       //Verification of OTP 
       let confirmationResult = window.confirmationResult;
@@ -98,9 +97,6 @@ export default function Login_Form({ users }) {
         //User signed in successfully
         const user = result.user;
         console.log('user created firebase')
-        
-
-        //..
       }).catch((error) => {
         //User couldnt validate
       });
@@ -122,6 +118,10 @@ export default function Login_Form({ users }) {
           console.log("SUCCESS",);
           console.log(result);
           router.push('/register')
+
+          const resposeStatus = {result}
+
+          dispatch(addToResponse(resposeStatus))
 
         }
         else {

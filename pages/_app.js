@@ -1,12 +1,14 @@
 import '../styles/globals.css'
 import { motion } from "framer-motion";
 import Transition from "../components/Transition/Transition"
+import { Provider } from 'react-redux';
+import { store } from '../components/Store/store';
 
 function MyApp({ Component, pageProps }) {
   return (
-
-    <Component {...pageProps} />
-
+    <Provider store={store}>
+      <Component {...pageProps} />    
+    </Provider>
   );
 }
 
