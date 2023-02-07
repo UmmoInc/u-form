@@ -1,12 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
-import { getResponse } from '../../../slices/basketSlice'
+
 
 export default function Register_Form() {
-
-  const response = useSelector(getResponse)
-  console.log(response);
 
   return (
     <div className='bg-white rounded-2xl px-4 md:px-8 py-8 md:py-12 shadow-sm border border-[#006592] border-opacity-25 space-y-6'>
@@ -18,7 +15,7 @@ export default function Register_Form() {
 
       {/*Form */}
       <div>
-        <form className='space-y-4'>
+        <form method='post' action='/api/register' className='space-y-4'>
         
           {/*First Name */}
           <div className='relative flex text-base w-full flex-col'>
@@ -38,16 +35,16 @@ export default function Register_Form() {
           {/*Email */}
           <div className='relative flex text-base w-full flex-col'>
             <label htmlFor='email' className='font-medium  flex items-center absolute -top-3 left-5 px-2 text-[#0079B0] bg-white'>Email</label>
-            <input type={'email'} id='Confirm_Password' name='Confirm_Password' className='border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white '/>
+            <input type={'email'} id='email' name='email' className='border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white '/>
           </div>
 
           <div className='flex space-x-3 '>
             <input type={'checkbox'}  />
             <p> I have read the Terms & Conditions</p>
-          </div>
+          </div> 
 
           {/*Login Button */}
-          <button className='bg-[#0079B0] w-full py-2 font-medium rounded-xl flex items-center justify-center text-[#E6F3F9] active:bg-gray-800'>
+          <button type='submit' className='bg-[#0079B0] w-full py-2 font-medium rounded-xl flex items-center justify-center text-[#E6F3F9] active:bg-gray-800'>
             <p>Register </p>
           </button>
 
