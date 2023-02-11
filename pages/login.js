@@ -6,8 +6,9 @@ import { authentication } from '../middleware/firebase'
 import {RecaptchaVerifier} from 'firebase/auth'
 //Logo
 import Logo from '../assets/Logo.png'
+import clientPromise from '../lib/mongodb'
 
-export default function Login() {
+export default function Login({candidates}) {
 
   return (
 
@@ -23,7 +24,7 @@ export default function Login() {
                 <Image src={Logo} width={45} objectFit='contain'  alt='Logo'/>
             </div>
             <div className=' px-4 w-full flex-grow max-w-xl  '>
-                <Login_Form />
+                <Login_Form users={candidates} />
             </div>
         </div>
       </main>
@@ -39,5 +40,21 @@ export default function Login() {
   )
 }
 
+export async function getServerSideProps() {
+  try {
+      const client = await clientPromise;
+      const db = client.db("sds");
 
+      const candidates = await db
+          .collection("candidates")
+          .find({})
+          .toArray();
+
+      return {
+          props: { candidates: JSON.parse(JSON.stringify(candidates)) },
+      };
+  } catch (e) {
+      console.error(e);
+  }
+}
   

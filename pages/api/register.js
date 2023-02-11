@@ -1,20 +1,23 @@
+import { useRouter } from "next/router";
 import clientPromise from "../../lib/mongodb";
 
 export default async (req, res) => {
 
+    
     try {
         const client = await clientPromise;
         const db = client.db("sds");
 
-        const { fullname, surname, email} = req.body
+        const { firstName, surname, email} = JSON.parse(req.body);
 
         const candidate = await db.collection("candidates").insertOne({
-            fullname,
+            firstName,
             surname,
             email,
           });
 
-        res.json(candidate) 
+        
+        
 
         res.status(201).json({ message: "Data inserted successfully!" });;
     } catch (e) {
