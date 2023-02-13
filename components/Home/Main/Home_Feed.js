@@ -2,13 +2,13 @@ import Link from 'next/link'
 import React from 'react'
 import Home_Test from '../../Test/Home_Test'
 
-export default function Home_Feed() {
+export default function Home_Feed(data) {
+
+ 
   return (
     <div className='px-4 py-8 space-y-4'>
         {/*Welcome Text */}
-        <div>
-            <p className='font-[500] text-2xl'>Welcome, Mayo!</p>
-        </div>
+        
         <div className='space-y-2'>
             <div>
                 <ul className='flex space-x-4'>
@@ -27,13 +27,23 @@ export default function Home_Feed() {
                 </ul>
             </div>
             <div>
-                <Link href={'../../test/about'} >
-                    <Home_Test />
-                </Link>
-            </div>
+                {data.data.data.map((test) => (
+                    <div className='py-1'>
+                        <Home_Test 
+                            _id={test.id} 
+                            title={test.title} 
+                            description={test.description}
+                        />
+                    </div>
+                ))}
+                    
+            
+            </div> 
             
         </div>
         
     </div>
   )
 }
+
+

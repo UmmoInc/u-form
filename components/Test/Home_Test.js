@@ -1,17 +1,20 @@
 import Link from 'next/link'
 import React from 'react'
 
-export default function Home_Test() {
+export default function Home_Test({testInfo, title, description, _id}) {
+
   return (
-    <div className='grid grid-flow-row grid-cols-7 bg-white rounded-xl space-x-2 px-2 py-4 border border-[#B0D9EC] shadow'>
-        <div className='  rounded-full flex items-center justify-end'>
-            <div className=' bg-gray-200 h-12 w-12 rounded-full' />
-        </div>
+    <div className=' px-8 bg-white rounded-xl  py-4 border border-[#B0D9EC] shadow'>
         
-          <div className='col-span-6 '>
-            <p className='text-[#66A3BE] text-xs'>Ministry of Education</p>
-            <p className='font-semibold text-[#0079B0] text-md'>Self-Direct Test</p>
-            <p className='text-[#3394C0] text-xs line-clamp-2'>Determine your interest, as they will be of importance when you make a career decision.</p>
+        
+          <div className='col-span-6 space-y-2 ' id={_id} >
+            <p className='font-semibold text-[#0079B0] text-md'>{title}</p>
+            <p className='text-[#3394C0] text-xs line-clamp-2'>{description}</p>
+            <div className='pt-2'>
+              <Link href={`../../test/${_id}`} >
+                <button className='border-[#0079B0] text-[#0079B0]  w-full  rounded-full border-2 font-bold py-1.5 hover:bg-[#0079B0] hover:text-white'>Take Test</button>
+              </Link>
+            </div>
           </div> 
       
             

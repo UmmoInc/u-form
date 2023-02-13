@@ -7,9 +7,9 @@ import Home_Feed from '../components/Home/Main/Home_Feed'
 
 
 
-export default function HomeView() {
+export default function HomeView({data}) {
 
- 
+
 
   return (
 
@@ -24,7 +24,7 @@ export default function HomeView() {
       </nav>
      
       <main className=''>
-        <Home_Feed />
+        <Home_Feed data={data}/>
       </main>
 
       <footer className=''>
@@ -39,4 +39,13 @@ export default function HomeView() {
 }
 
 
-  
+export async function getStaticProps (){
+  const res = await fetch("https://ummo-digital-tester.herokuapp.com/api/v1/question/tests");
+  const data = await res.json()
+
+  return {
+      props: {
+          data,
+      }
+  }
+}
