@@ -102,33 +102,33 @@ export default function Login_Form({ users }) {
       });
 
       //Send user data to Mongodb
-      // fetch(
-      //   "api/login",
-      //   {
-      //     method: "PUT",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify(data),
-      //   }
-      // ).then(async (response) => {
-      //   const result = await response.json()
-      //   console.log(result);
-      //   if (result.status === 1) {
-      //     console.log("SUCCESS",);
-      //     console.log(result);
-      //     router.push('/register')
+      fetch(
+        "api/login",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      ).then(async (response) => {
+        const result = await response.json()
+        console.log(result);
+        if (result.status === 1) {
+          console.log("SUCCESS",);
+          console.log(result);
+          router.push('/register')
 
-      //     const resposeStatus = {result}
+          const resposeStatus = {result}
 
-      //     dispatch(addToResponse(resposeStatus))
+          dispatch(addToResponse(resposeStatus))
 
-      //   }
-      //   else {
-      //     console.log("FAILED", result.message);
-      //   }
-      //   //   res.redirect(307);
-      // });
+        }
+        else {
+          console.log("FAILED", result.message);
+        }
+        //   res.redirect(307);
+      });
 
       const postData = async () => {
         const data = {

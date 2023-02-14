@@ -11,7 +11,7 @@ export default function Home_Test({testInfo, title, description, _id}) {
             <p className='font-semibold text-[#0079B0] text-md'>{title}</p>
             <p className='text-[#3394C0] text-xs line-clamp-2'>{description}</p>
             <div className='pt-2'>
-              <Link href={`../../test/${_id}`} >
+              <Link href={`../../test/section/${_id}`} >
                 <button className='border-[#0079B0] text-[#0079B0]  w-full  rounded-full border-2 font-bold py-1.5 hover:bg-[#0079B0] hover:text-white'>Take Test</button>
               </Link>
             </div>
