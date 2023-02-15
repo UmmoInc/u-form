@@ -3,6 +3,8 @@ import Question from './Question'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useRouter } from 'next/router';
+import Loader_Image from '../../../assets/1490.gif'
+import Image from 'next/image';
 
 function Investigative_Feed(data) {
     
@@ -64,7 +66,9 @@ function Investigative_Feed(data) {
         console.log(questionNumber);
   return (
     <div>
-        {showLoader? <div>Loader</div>:
+        {showLoader? <div className='flex h-screen  justify-center items-center'>
+          <Image className='-translate-y-10' src={Loader_Image} width={50} length={50} />
+      </div>:
         <div className={`w-full pt-24 ${close? "hidden":""}`}>
             <div className='flex flex-col items-center justify-center py-8'>
                 <p className='text-[#0079B0] font-semibold text-xl'>Questions</p>

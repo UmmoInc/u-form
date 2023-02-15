@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import Investigative_Feed from '../../../../components/Test/SDS/Investigative_Feed'
 import Header_sm from '../../../../components/Home/Header/Header_sm'
+import Artistic_Feed from '../../../../components/Test/SDS/Artistic_Feed'
 
 
 
@@ -30,7 +31,7 @@ export default function artistic(data) {
      
       <main className=''>
         {/* <About_Test sections={data.data.data.section_info} id={id}/> */}
-        <Investigative_Feed data={data.data.data.section_info}  /> 
+        <Artistic_Feed data={data.data.data.section_info}  /> 
       </main>
 
       <footer className=''>
