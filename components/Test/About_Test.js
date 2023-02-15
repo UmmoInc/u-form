@@ -7,6 +7,8 @@ export default function About_Test({id,sections}) {
     const selectedSection = sections.find((section) => section.test_id === id)
     console.log(selectedSection);
 
+    console.log(sections);
+
     if (!selectedSection) {
         return <div>
             test not found
@@ -27,7 +29,10 @@ export default function About_Test({id,sections}) {
             </div>
         </div>
         <div>
-                <button className='border-[#0079B0] text-[#0079B0]  w-full  rounded-full border-2 font-bold py-1.5 hover:bg-[#0079B0] hover:text-white'>Take Test</button>
+            <Link href={'/test/section/realistic/questions'} >
+                <button className='bg-[#0079B0]  w-full  rounded-full border-2 font-bold py-2.5 hover:bg-[#0079B0] outline-none  text-white'>Take Test
+                </button>
+            </Link>
         </div>
     </div>
   )

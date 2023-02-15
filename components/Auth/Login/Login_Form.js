@@ -171,7 +171,7 @@ export default function Login_Form({ users }) {
               <div>
                 {verifying ? <button
 
-                  className="bg-[#0079B0] opacity-60 w-full py-2  font-medium rounded-xl text-[#E6F3F9] active:bg-gray-800"
+                  className="bg-[#0079B0] opacity-60 w-full outline-none py-2  font-medium rounded-xl text-[#E6F3F9] active:bg-gray-800"
                 >
                   <p>Verifying...</p>
                 </button>
@@ -223,7 +223,7 @@ export default function Login_Form({ users }) {
               <button
                 id="sign-in-button"
                 type="submit"
-                className="bg-[#0079B0] w-full py-2  font-medium rounded-xl text-[#E6F3F9] active:bg-gray-800"
+                className="bg-[#0079B0] outline-none w-full py-2  font-medium rounded-xl text-[#E6F3F9] active:bg-gray-800"
               >
                 {loading ? <p>Loading... </p> : <p>Continue </p>}
               </button>

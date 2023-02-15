@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import Catergory from '../../../../components/Test/SDS/Catergory'
+import Investigative_Feed from '../../../../components/Test/SDS/Investigative_Feed'
 import Header_sm from '../../../../components/Home/Header/Header_sm'
 
 
@@ -9,13 +9,13 @@ import Header_sm from '../../../../components/Home/Header/Header_sm'
 
 
 
-export default function test_category(data) {
+export default function investigative(data) {
 
   const router = useRouter()
   const {id} = router.query
 
  
-
+    let section = 0
   return (
 
       <div className='bg-[#E6F3F9] h-screen'>
@@ -30,7 +30,7 @@ export default function test_category(data) {
      
       <main className=''>
         {/* <About_Test sections={data.data.data.section_info} id={id}/> */}
-        <Catergory data={data.data.data.section_info} />
+        <Investigative_Feed data={data.data.data.section_info}  /> 
       </main>
 
       <footer className=''>
