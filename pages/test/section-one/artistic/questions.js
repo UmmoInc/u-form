@@ -1,22 +1,9 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { useRouter } from 'next/router'
-import Investigative_Feed from '../../../../components/Test/SDS/Investigative_Feed'
 import Header_sm from '../../../../components/Home/Header/Header_sm'
-import Artistic_Feed from '../../../../components/Test/SDS/Artistic_Feed'
-
-
-
-
-
+import Artistic_Feed from '../../../../components/Test/SDS/SectionOne/Artistic_Feed';
 
 export default function artistic(data) {
-
-  const router = useRouter()
-  const {id} = router.query
-
- 
-    let section = 0
   return (
 
       <div className='bg-[#E6F3F9] h-screen'>

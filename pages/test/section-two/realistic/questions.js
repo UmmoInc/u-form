@@ -1,21 +1,8 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { useRouter } from 'next/router'
-import Investigative_Feed from '../../../../components/Test/SDS/Investigative_Feed'
 import Header_sm from '../../../../components/Home/Header/Header_sm'
+import Realistic_Feed from '../../../../components/Test/SDS/SectionTwo/Realistic_Feed'
 
-
-
-
-
-
-export default function investigative(data) {
-
-  const router = useRouter()
-  const {id} = router.query
-
- 
-    let section = 0
+export default function realistic(data) {
   return (
 
       <div className='bg-[#E6F3F9] h-screen'>
@@ -30,7 +17,7 @@ export default function investigative(data) {
      
       <main className=''>
         {/* <About_Test sections={data.data.data.section_info} id={id}/> */}
-        <Investigative_Feed data={data.data.data.section_info}  /> 
+        <Realistic_Feed data={data.data.data.section_info}  /> 
       </main>
 
       <footer className=''>

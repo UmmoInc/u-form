@@ -1,26 +1,61 @@
 import React, { useRef, useState } from "react";
-import Question from "./Question";
+import Question from "../Question";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useRouter } from "next/router";
-
-import Loader_Image from "../../../assets/1490.gif";
+import Loader_Image from "../../../../assets/1490.gif";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
-import { addToGrading, decrement, increment } from "../../features/counter/counterSlice";
-import { store } from "../../../pages/store";
+import { addToGrading, decrement, increment } from "../../../features/counter/counterSlice";
+import { store } from "../../../../pages/store";
 let testArray = []
 
-function Realistic_Feed(data) {
-  const questions = data.data[0].category_info[0].question_info;
-  const category_name = data.data[0].category_info[0].title;
-  
+export default function Conventional_Feed(data) {
 
-  const [trigger, setTrigger] = useState(0);
-  const [value, setValue] = useState("");
+  //Initializing Index Number
+  const [catergoryIndex, setCatergoryIndex] = useState(0)
 
-  
-  // console.log(data.data[0].category_info[0].title);
+  //Questions data From API
+  const questions = data.data[0].category_info[5].question_info;
+  const section_name = data.data[0].title;
+  const category_name = data.data[0].category_info[5].title;
+
+  // Router => router
+  const router = useRouter();
+
+  //Initializing {questionNumber}
+  let [questionNumber, setQuestionNumber] = useState(1);
+
+  //Initializing useState - Loader
+  const [showLoader, setShowLoader] = useState(false);
+  const [close, setClose] = useState(false);
+
+  //Getting Store Contents
+  const state = store.getState();
+  const count = useSelector((state) => state.results.grading);
+
+  //Dispatch response to Redux Store
+  const dispatch = useDispatch();
+  const addCatergoryToGrade_0 = () => {
+      dispatch(addToGrading({
+        'question_id': questions[questionNumber-1].question_id,
+        'option_id':questions[questionNumber-1].options[0].id,
+        section_name,
+        category_name
+      }))
+      console.log(count);
+  };
+  const addCatergoryToGrade_1 = () => {
+    dispatch(addToGrading({
+      'question_id': questions[questionNumber-1].question_id,
+      'option_id':questions[questionNumber-1].options[1].id,
+      section_name,
+      category_name
+    }))
+    console.log(count);
+  };
+
+  //Device Breakpoints on Carousel
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -39,56 +74,19 @@ function Realistic_Feed(data) {
     },
   };
   
-
-  const router = useRouter();
-
-  let [questionNumber, setQuestionNumber] = useState(1);
-  const [showLoader, setShowLoader] = useState(false);
-
-  const [close, setClose] = useState(false);
-const count = useSelector((state) => state.results.grading);
-  
-  const state = store.getState();
+  // Counter Effect Function to Increament Progress Bar then Reroute to next section
   function increament() {
     setQuestionNumber(questionNumber + 1);
 
     if (questionNumber === questions.length) {
       setClose(true);
       setShowLoader(true);
-      // router.push("/test/section/investigative/questions");
-    }
-  }
-  // console.log(questionNumber);
+      router.push("/test/section-two/section-info");
+      console.log('Section One Ends here');
+    };
+  };
 
-  const dispatch = useDispatch();
-
-  const addCatergoryToGrade_0 = () => {
-
-      dispatch(addToGrading({
-        'question_id': questions[questionNumber-1].question_id,
-        'option_id':questions[questionNumber-1].options[0].id,
-        'section_name':'SECTION I: ACTIVITIES',
-        category_name
-      }))
-      console.log(count);
-      
-
-  }
-
-  const addCatergoryToGrade_1 = () => {
- 
-    dispatch(addToGrading({'question_id': questions[questionNumber-1].question_id,
-    'option_id':questions[questionNumber-1].options[1].id,
-    'section_name':'SECTION I: ACTIVITIES',
-    category_name}))
-    console.log(count);
-
-}
-
-  
-
- 
-  // Yes/No buttons
+  // Yes/No buttons 
   const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
     const {
       carouselState: { currentSlide },
@@ -96,29 +94,24 @@ const count = useSelector((state) => state.results.grading);
     return (
       <div
         className="carousel-button-group -translate-y-20 px-8 space-x-2 font-semibold  absolute gap-4 flex justify-center  
-            items-center w-full"
-      >
+            items-center w-full">
         <button
           className="flex w-full border-2 rounded-xl  border-[#0079B0] text-[#0079B0] py-3 outline-none white justify-center"
           onClick={() => {
             addCatergoryToGrade_0()
             next();
             increament();
-            setTrigger((trigger) => trigger + 1);
-          }}
-        >
+          }}>
           {" "}
           NO
         </button>
         <button
           className="flex  border-2 rounded-xl  border-[#0079B0] text-[#0079B0] py-3 outline-none white justify-center w-full"
           onClick={() => {
-            addCatergoryToGrade_1()
+            addCatergoryToGrade_1();
             next();
             increament();
-            setTrigger(trigger + 1, [value]);
-          }}
-        >
+          }}>
           {" "}
           Yes
         </button>
@@ -137,6 +130,7 @@ const count = useSelector((state) => state.results.grading);
             src={Loader_Image}
             width={50}
             length={50}
+            alt='Loader'
           />
         </div>
       ) : (
@@ -149,8 +143,8 @@ const count = useSelector((state) => state.results.grading);
           </div>
           {/* Question carousel */}
           <Carousel
-            swipeable={true}
-            draggable={true}
+            swipeable={false}
+            draggable={false}
             responsive={responsive}
             ssr={true} // means to render carousel on server-side.
             infinite={true}
@@ -169,7 +163,6 @@ const count = useSelector((state) => state.results.grading);
             {/* Question card */}
              <div className=" flex mx-4">
                 <Question
-                  section_name={'Realistic'}
                   category_name={category_name}
                   question={questions[questionNumber-1].question}
                 />
@@ -182,4 +175,3 @@ const count = useSelector((state) => state.results.grading);
   );
 }
 
-export default Realistic_Feed;

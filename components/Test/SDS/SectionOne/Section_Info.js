@@ -1,13 +1,8 @@
 import Link from 'next/link';
 import React from 'react'
 
-export default function About_Test({id,sections}) {
-   
-
-    const selectedSection = sections.find((section) => section.test_id === id)
-    console.log(selectedSection);
-
-    console.log(sections);
+export default function Section_Info({id,sections}) {
+    const selectedSection = sections.find((section) => section.test_id === id);
 
     if (!selectedSection) {
         return <div>
@@ -29,7 +24,7 @@ export default function About_Test({id,sections}) {
             </div>
         </div>
         <div>
-            <Link href={'/test/section/realistic/questions'} >
+            <Link href={'/test/section-one/realistic/questions'} >
                 <button className='bg-[#0079B0]  w-full  rounded-full border-2 font-bold py-2.5 hover:bg-[#0079B0] outline-none  text-white'>Take Test
                 </button>
             </Link>

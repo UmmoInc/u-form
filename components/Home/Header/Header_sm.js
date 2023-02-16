@@ -40,7 +40,7 @@ export default function Header_sm() {
               </button>
           </div>
           <div className='flex justify-center'>
-            <Image src={Logo} width={30} alt='u-Form Logo' />
+            <Image src={Logo} width={30} alt='u-Form Logo' priority={true}/>
           </div>
       </div>
     </div>

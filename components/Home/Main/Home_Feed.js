@@ -28,8 +28,9 @@ export default function Home_Feed(data) {
             </div>
             <div>
                 {data.data.data.map((test) => (
-                    <div className='py-1'>
+                    <div key={test.id} className='py-1'>
                         <Home_Test 
+                            key={test.id}
                             _id={test.id} 
                             title={test.title} 
                             description={test.description}

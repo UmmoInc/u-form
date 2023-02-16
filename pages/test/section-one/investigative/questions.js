@@ -1,23 +1,9 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { useRouter } from 'next/router'
 import Header_sm from '../../../../components/Home/Header/Header_sm'
-import Social_Feed from '../../../../components/Test/SDS/Social_Feed'
+import Investigative_Feed from '../../../../components/Test/SDS/SectionOne/Investigative_Feed';
 
-
-
-
-
-
-export default function social(data) {
-
-  const router = useRouter()
-  const {id} = router.query
-
- 
-   
+export default function investigative(data) {
   return (
-
       <div className='bg-[#E6F3F9] h-screen'>
       <Head>
         <title>u-Form</title>
@@ -30,7 +16,7 @@ export default function social(data) {
      
       <main className=''>
         {/* <About_Test sections={data.data.data.section_info} id={id}/> */}
-        <Social_Feed data={data.data.data.section_info}  /> 
+        <Investigative_Feed data={data.data.data.section_info}  /> 
       </main>
 
       <footer className=''>

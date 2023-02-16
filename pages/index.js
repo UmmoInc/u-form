@@ -21,7 +21,7 @@ export default function Home() {
      
       <main className='h-screen justify-center md:pt-48 pt-24  w-full space-y-8 flex-col flex items-center'>
             <div className='flex w-full justify-center text-2xl font-bold '>
-                <Image src={Logo} width={45} objectFit='contain' />
+                <Image src={Logo} width={45}  alt='Logo' priority={true} />
             </div>
             <div className=' px-4 w-full flex-grow max-w-md  '>
                 <Login_Form />

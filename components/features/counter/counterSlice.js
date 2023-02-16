@@ -9,7 +9,8 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
     addToGrading: (state,action) => {
-        state.grading = [...state.grading,action.payload] 
+        // state.grading = [...state.grading,action.payload] 
+        state.grading.push(action.payload); 
     },
   },
 })
