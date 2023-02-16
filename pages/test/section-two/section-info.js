@@ -1,13 +1,10 @@
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 import Header_sm from '../../../components/Home/Header/Header_sm'
 import Section_Info from '../../../components/Test/SDS/SectionTwo/Section_Info'
 
 
 export default function test_section(data) {
 
-  const router = useRouter()
-  const {id} = router.query
 
 
   return (
