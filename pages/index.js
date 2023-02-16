@@ -14,7 +14,7 @@ export default function Home() {
       <div className='h-screen w-full bg-[#E6F3F9]'>
       <Head>
         <title>u-Form</title>
-        <meta name="description" content="Online Shopping Site" />
+        <meta name="description" content="Online Forms" />
         <link rel="icon" href="/Logo.ico" />
       </Head>
       
