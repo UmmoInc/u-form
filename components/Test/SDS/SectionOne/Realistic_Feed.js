@@ -7,7 +7,7 @@ import Loader_Image from "../../../../assets/1490.gif";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { addToGrading, decrement, increment } from "../../../features/counter/counterSlice";
-import { store } from "../../../../pages/store";
+import { store } from "../../../../middleware/store";
 let testArray = []
 
 function Realistic_Feed(data) {
@@ -129,6 +129,7 @@ function Realistic_Feed(data) {
             src={Loader_Image}
             width={50}
             length={50}
+            alt='Loader'
           />
         </div>
       ) : (
