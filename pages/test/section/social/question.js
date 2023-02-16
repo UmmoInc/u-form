@@ -1,20 +1,21 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import Catergory from '../../../../components/Test/SDS/Realistic_Feed'
 import Header_sm from '../../../../components/Home/Header/Header_sm'
-import Realistic_Feed from '../../../../components/Test/SDS/Realistic_Feed'
+import Social_Feed from '../../../../components/Test/SDS/Social_Feed'
 
 
 
 
 
 
-export default function test_category(data) {
+export default function social(data) {
 
   const router = useRouter()
   const {id} = router.query
 
+ 
+   
   return (
 
       <div className='bg-[#E6F3F9] h-screen'>
@@ -29,7 +30,7 @@ export default function test_category(data) {
      
       <main className=''>
         {/* <About_Test sections={data.data.data.section_info} id={id}/> */}
-        <Realistic_Feed data={data.data.data.section_info}  /> 
+        <Social_Feed data={data.data.data.section_info}  /> 
       </main>
 
       <footer className=''>

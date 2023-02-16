@@ -3,11 +3,13 @@ import Question from './Question'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useRouter } from 'next/router';
+import Loader_Image from '../../../assets/1490.gif'
+import Image from 'next/image';
 
 function Social_Feed(data) {
     
-    const questions = data.data[2].category_info[2].question_info
-    const category_name = data.data[2].category_info[2].title
+    const questions = data.data[3].category_info[3].question_info
+    const category_name = data.data[3].category_info[3].title
     // console.log(data.data[0].category_info[0].title);
     const responsive = {
         desktop: {
@@ -50,18 +52,23 @@ function Social_Feed(data) {
        let [questionNumber, setQuestionNumber] = useState(1)
 
        const [close, setClose] = useState(false)
+       const [showLoader, setShowLoader] = useState(false)
 
        function increament() {
             setQuestionNumber(questionNumber+1)
 
             if (questionNumber === questions.length) {
                 setClose(true)
-                router.push('/test/section/investigative/questions')
+                setShowLoader(true)
+                router.push('/test/section/enterprising/questions')
             }
        }
         console.log(questionNumber);
   return (
     <div>
+      {showLoader? <div className='flex h-screen  justify-center items-center'>
+          <Image className='-translate-y-10' src={Loader_Image} width={50} length={50} />
+      </div>:
         <div className={`w-full pt-24 ${close? "hidden":""}`}>
             <div className='flex flex-col items-center justify-center py-8'>
                 <p className='text-[#0079B0] font-semibold text-xl'>Questions</p>
@@ -100,7 +107,7 @@ function Social_Feed(data) {
                     ))}
                 
             </Carousel>
-        </div>
+        </div>}
     </div>
   )
 }

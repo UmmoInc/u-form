@@ -3,6 +3,9 @@ import Question from './Question'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useRouter } from 'next/router';
+import Loader_Image from '../../../assets/1490.gif'
+import Image from 'next/image';
+import { useRef } from 'react';
 
 function Artistic_Feed(data) {
     
@@ -33,10 +36,13 @@ function Artistic_Feed(data) {
             items-center w-full">
               <button className='flex w-full border-2 rounded-xl  border-[#0079B0] text-[#0079B0] py-3 outline-none white justify-center' onClick={() => {
               next();
-              increament()}}> NO</button>
+              increament();
+              setTrigger((trigger) => trigger + 1)
+              }}> NO</button>
               <button className='flex  border-2 rounded-xl  border-[#0079B0] text-[#0079B0] py-3 outline-none white justify-center w-full' onClick={() => {
                 next(); 
                 increament();
+                setTrigger((trigger) => trigger + 1)
                 }}> Yes</button>
               
               
@@ -50,18 +56,29 @@ function Artistic_Feed(data) {
        let [questionNumber, setQuestionNumber] = useState(1)
 
        const [close, setClose] = useState(false)
+       const [showLoader, setShowLoader] = useState(false)
 
        function increament() {
             setQuestionNumber(questionNumber+1)
 
             if (questionNumber === questions.length) {
                 setClose(true)
-                router.push('/test/section/investigative/questions')
+                setShowLoader(true)
+                router.push('/test/section/social/questions')
             }
        }
         console.log(questionNumber);
+
+
+       const childRef = useRef()
+       const [trigger, setTrigger] = useState(0)
+
+
   return (
     <div>
+      {showLoader? <div className='flex h-screen  justify-center items-center'>
+          <Image className='-translate-y-10' src={Loader_Image} width={50} length={50} />
+      </div>:
         <div className={`w-full pt-24 ${close? "hidden":""}`}>
             <div className='flex flex-col items-center justify-center py-8'>
                 <p className='text-[#0079B0] font-semibold text-xl'>Questions</p>
@@ -89,7 +106,8 @@ function Artistic_Feed(data) {
                 
                     {questions.map((question) => (
                         <div className=' flex mx-4'>
-                            <Question
+                            <Question ref={childRef}
+                                trigger={trigger}
                                 category_name={category_name} 
                                 question={question.question} 
                                 question_id={question.question_id}
@@ -100,7 +118,7 @@ function Artistic_Feed(data) {
                     ))}
                 
             </Carousel>
-        </div>
+        </div>}
     </div>
   )
 }
