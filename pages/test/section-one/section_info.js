@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Header_sm from '../../../components/Home/Header/Header_sm'
-import Section_Info from '../../../components/Test/SDS/SectionOne/Section_Info'
+import Section_Info from '../../../components/Test/SDS/SectionTwo/Section_Info'
 
 
-export default function test_section(data) {
+export default function test_section_one(data) {
 
   const router = useRouter()
   const {id} = router.query
@@ -38,20 +38,8 @@ export default function test_section(data) {
 }
 
 
-export async function getStaticPaths() {
-  const res = await fetch('https://ummo-digital-tester.herokuapp.com/api/v1/question/tests/')
-  const data = await res.json()
 
-  const paths = data.data.map((test) => ({
-    params:  {id: test.id.toString()} ,
-  }))
-
-
-
-  return { paths, fallback: false }
-}
-
-export async function getStaticProps (context){
+export async function getServerSideProps (context){
   const res = await fetch('http://ummo-digital-tester.herokuapp.com/api/v1/question/test/efdfdb19-39ee-4d63-9897-a097f11deb17');
   const data = await res.json()
 

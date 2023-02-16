@@ -9,7 +9,7 @@ export default function Home_Test({title, description, _id}) {
             <p className='font-semibold text-[#0079B0] text-md'>{title}</p>
             <p className='text-[#3394C0] text-xs line-clamp-2'>{description}</p>
             <div className='pt-2'>
-              <Link href={`../../test/section-one/${_id}`} >
+              <Link href={`../../test/section-one/section-info`} >
                 <button className='border-[#0079B0] bg-[#0079B0]  w-full  rounded-full border-2 font-bold py-1.5 text-white outline-none'>Take Test</button>
               </Link>
             </div>
