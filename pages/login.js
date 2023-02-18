@@ -116,7 +116,7 @@ export default function Login_Form({ users }) {
         if (result.status === 1) {
           console.log("SUCCESS",);
           console.log(result);
-          router.push('/register')
+          router.push('/home')
 
           const resposeStatus = {result}
 

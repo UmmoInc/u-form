@@ -103,7 +103,7 @@ export default function Login_Form({ users }) {
 
       //Send user data to Mongodb
       fetch(
-        "api/login",
+        "https://ummo-form-auth.herokuapp.com/api/v1/auth/validate",
         {
           method: "PUT",
           headers: {
