@@ -1,12 +1,10 @@
 import Head from 'next/head'
-import Header_sm from '../../../components/Home/Header/Header_sm'
-import Section_Info from '../../../components/Test/SDS/SectionTwo/Section_Info'
+import { useRouter } from 'next/router'
+import Header_sm from '../../../../components/Home/Header/Header_sm'
+import Group_Two from '../../../../components/Test/SDS/SectionFour/Group_Two';
+import Artistic_Feed from '../../../../components/Test/SDS/SectionOne/Artistic_Feed';
 
-
-export default function test_section(data) {
-
-
-
+export default function groupTwo(data) {
   return (
 
       <div className='bg-[#E6F3F9] h-screen'>
@@ -20,7 +18,8 @@ export default function test_section(data) {
       </nav>
      
       <main className=''>
-        <Section_Info sections={data.data.data.section_info} />
+        {/* <About_Test sections={data.data.data.section_info} id={id}/> */}
+        <Group_Two data={data.data.data.section_info}  /> 
       </main>
 
       <footer className=''>
@@ -33,8 +32,6 @@ export default function test_section(data) {
     
   )
 }
-
-
 
 export async function getServerSideProps (context){
   const res = await fetch('http://ummo-digital-tester.herokuapp.com/api/v1/question/test/efdfdb19-39ee-4d63-9897-a097f11deb17');

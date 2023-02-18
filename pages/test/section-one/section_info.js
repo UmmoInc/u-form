@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Header_sm from '../../../components/Home/Header/Header_sm'
-import Section_Info from '../../../components/Test/SDS/SectionTwo/Section_Info'
+import Section_Info from '../../../components/Test/SDS/SectionOne/Section_Info'
 
 
 export default function test_section_one(data) {
@@ -19,7 +19,7 @@ export default function test_section_one(data) {
       </nav>
      
       <main className=''>
-        <Section_Info sections={data.data.data.section_info} id={id}/>
+        <Section_Info sections={data.data.data.section_info} />
       </main>
 
       <footer className=''>

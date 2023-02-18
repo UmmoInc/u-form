@@ -19,7 +19,7 @@ export default function Header_sm() {
     }
 
   return (
-    <div className='relative'>
+    <div className='relative '>
       {/*SideDrawer - MOBILE   */}
       <span className={` ease-in-out delay-100 transition-all absolute w-full h-screen ${showDrawer? "":"hidden"} `}>
         <div className=' flex fixed h-screen w-screen'>
@@ -33,7 +33,7 @@ export default function Header_sm() {
             </div>
         </div>
       </span>
-      <div className='bg-[#0079B0] p-4 grid grid-cols-3 grid-flow-row items-center'>
+      <div className='bg-[#0079B0] h-[50px] justify-center px-4 grid grid-cols-3 grid-flow-row items-center'>
           <div >
               <button onClick={showSideDrawer} className=''>
                   <BiMenu className='text-3xl text-white cursor-pointer' />

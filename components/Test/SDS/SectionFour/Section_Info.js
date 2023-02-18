@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React from 'react'
 
 export default function Section_Info({id,sections}) {
-    const selectedSection = sections[0]
+    const selectedSection = sections[3]
   return (
     <div className='space-y-4 px-4 py-8'>
         
@@ -17,7 +17,7 @@ export default function Section_Info({id,sections}) {
             </div>
         </div>
         <div>
-            <Link href={'/test/section-one/realistic/questions'} >
+            <Link href={'/test/section-four/group-one/questions'} >
                 <button className='bg-[#0079B0]  w-full  rounded-full border-2 font-bold py-2.5 hover:bg-[#0079B0] outline-none  text-white'>Take Test
                 </button>
             </Link>

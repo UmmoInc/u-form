@@ -10,15 +10,15 @@ import { addToGrading, decrement, increment } from "../../../features/counter/co
 import { store } from "../../../../middleware/store";
 let testArray = []
 
-export default function Conventional_Feed(data) {
+export default function Social_Feed(data) {
 
   //Initializing Index Number
   const [catergoryIndex, setCatergoryIndex] = useState(0)
 
   //Questions data From API
-  const questions = data.data[1].category_info[5].question_info;
-  const section_name = data.data[1].title;
-  const category_name = data.data[1].category_info[5].title;
+  const questions = data.data[2].category_info[3].question_info;
+  const section_name = data.data[2].title;
+  const category_name = data.data[2].category_info[3].title;
 
   // Router => router
   const router = useRouter();
@@ -81,8 +81,7 @@ export default function Conventional_Feed(data) {
     if (questionNumber === questions.length) {
       setClose(true);
       setShowLoader(true);
-      router.push("/test/section-three/section-info");
-      console.log('Section Two Ends here');
+      router.push("/test/section-three/enterprising/questions");
     };
   };
 

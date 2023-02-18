@@ -1,14 +1,9 @@
 import Head from 'next/head'
-import Header_sm from '../../../components/Home/Header/Header_sm'
-import Section_Info from '../../../components/Test/SDS/SectionTwo/Section_Info'
+import Header_sm from '../../../../components/Home/Header/Header_sm'
+import Investigative_Feed from '../../../../components/Test/SDS/SectionThree/Investigative_Feed';
 
-
-export default function test_section(data) {
-
-
-
+export default function investigative(data) {
   return (
-
       <div className='bg-[#E6F3F9] h-screen'>
       <Head>
         <title>u-Form</title>
@@ -20,7 +15,8 @@ export default function test_section(data) {
       </nav>
      
       <main className=''>
-        <Section_Info sections={data.data.data.section_info} />
+        {/* <About_Test sections={data.data.data.section_info} id={id}/> */}
+        <Investigative_Feed data={data.data.data.section_info}  /> 
       </main>
 
       <footer className=''>
@@ -33,6 +29,7 @@ export default function test_section(data) {
     
   )
 }
+
 
 
 

@@ -1,11 +1,8 @@
 import Head from 'next/head'
-import Header_sm from '../../../components/Home/Header/Header_sm'
-import Section_Info from '../../../components/Test/SDS/SectionTwo/Section_Info'
+import Header_sm from '../../../../components/Home/Header/Header_sm'
+import Conventional_Feed from '../../../../components/Test/SDS/SectionThree/Conventional_Feed'
 
-
-export default function test_section(data) {
-
-
+export default function conventional(data) {
 
   return (
 
@@ -20,7 +17,7 @@ export default function test_section(data) {
       </nav>
      
       <main className=''>
-        <Section_Info sections={data.data.data.section_info} />
+        <Conventional_Feed data={data.data.data.section_info}  /> 
       </main>
 
       <footer className=''>
@@ -33,6 +30,7 @@ export default function test_section(data) {
     
   )
 }
+
 
 
 

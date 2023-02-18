@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useSelector } from 'react-redux';
 import Header_sm from '../components/Home/Header/Header_sm'
 import Home_Feed from '../components/Home/Main/Home_Feed'
+import { store } from '../middleware/store';
 
 
 
@@ -9,7 +11,10 @@ import Home_Feed from '../components/Home/Main/Home_Feed'
 
 export default function HomeView({data}) {
 
-
+//Getting Store Contents
+const state = store.getState();
+const count = useSelector((state) => state.results.grading);
+console.log("grade:",count);
 
   return (
 

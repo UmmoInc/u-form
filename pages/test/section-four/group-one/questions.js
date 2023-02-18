@@ -1,12 +1,10 @@
 import Head from 'next/head'
-import Header_sm from '../../../components/Home/Header/Header_sm'
-import Section_Info from '../../../components/Test/SDS/SectionTwo/Section_Info'
+import { useRouter } from 'next/router'
+import Header_sm from '../../../../components/Home/Header/Header_sm'
+import Group_One from '../../../../components/Test/SDS/SectionFour/Group_One';
+import Artistic_Feed from '../../../../components/Test/SDS/SectionOne/Artistic_Feed';
 
-
-export default function test_section(data) {
-
-
-
+export default function groupOne(data) {
   return (
 
       <div className='bg-[#E6F3F9] h-screen'>
@@ -20,7 +18,8 @@ export default function test_section(data) {
       </nav>
      
       <main className=''>
-        <Section_Info sections={data.data.data.section_info} />
+        {/* <About_Test sections={data.data.data.section_info} id={id}/> */}
+        <Group_One data={data.data.data.section_info}  /> 
       </main>
 
       <footer className=''>
@@ -33,6 +32,7 @@ export default function test_section(data) {
     
   )
 }
+
 
 
 

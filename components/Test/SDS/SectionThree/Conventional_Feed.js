@@ -16,9 +16,9 @@ export default function Conventional_Feed(data) {
   const [catergoryIndex, setCatergoryIndex] = useState(0)
 
   //Questions data From API
-  const questions = data.data[1].category_info[5].question_info;
-  const section_name = data.data[1].title;
-  const category_name = data.data[1].category_info[5].title;
+  const questions = data.data[2].category_info[5].question_info;
+  const section_name = data.data[2].title;
+  const category_name = data.data[2].category_info[5].title;
 
   // Router => router
   const router = useRouter();
@@ -81,8 +81,8 @@ export default function Conventional_Feed(data) {
     if (questionNumber === questions.length) {
       setClose(true);
       setShowLoader(true);
-      router.push("/test/section-three/section-info");
-      console.log('Section Two Ends here');
+      router.push("/test/section-four/section-info");
+      console.log('Section Three Ends here');
     };
   };
 
