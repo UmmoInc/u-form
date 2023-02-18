@@ -2,36 +2,64 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
 import { useRouter } from 'next/router';
+import { store } from '../../../middleware/store';
 
 
 export default function Register_Form({acknowledge}) {
 
-  const [firstName, setFirstName] = useState('');
-  const [surname, setSurname] = useState('');
+    //Getting Store Contents
+    const state = store.getState();
+    const user = useSelector((state) => state.userData.user);
+    
+    const token = user[0].token
+    const phone_number = user[0].phone_number
+    console.log(token);
+  const [first_name, setFirstName] = useState('');
+  const [last_name, setSurname] = useState('');
   const [email, setEmail] = useState('');
 
-  const router = useRouter;
+
+  const router = useRouter();
   
 
       
   function handleSubmit(e) {
     e.preventDefault();
+const data = { first_name, last_name, email, "method":"token", "type":"register" , phone_number };
+console.log(data);
+fetch(
+  "https://ummo-form-auth.herokuapp.com/api/v1/auth/create_user",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "identifier": token,
+    },
+    body: JSON.stringify(data),
+  }
+).then(async (response) => {
+  const result = await response.json()
+  console.log(result);
+  if (result.status === 1) {
+    console.log("SUCCESS",);
+    console.log(result);
+    router.push(`/home`)}})
 
-    const postData = async () => {
-      const data = { firstName, surname, email};
-
-      const response = await fetch("/api/register", {
-        method: "POST",
-        body: JSON.stringify(data),
-      });
-      return response.json();
+    // const postData = async () => {
       
-    };
-    postData().then((data) => {
-      alert(data.message);
-      router.push('/home')
-    });
-    
+
+    //   const response = await fetch("/api/register", {
+    //     method: "POST",
+    //     body: JSON.stringify(data),
+    //   });
+    //   return response.json();
+      
+    // };
+    // postData().then((data) => {
+    //   alert(data.message);
+    //   router.push('/home')
+    // });
+  
     
   }
 
@@ -56,14 +84,14 @@ export default function Register_Form({acknowledge}) {
              id='firstName'
              onChange={(e) => setFirstName(e.target.value)} 
              name='firstName'
-             value={firstName}
+             value={first_name}
              className='border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#006592] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white '/>
           </div>
 
           {/*Surname */}
           <div className='relative flex text-base w-full flex-col'>
             <label htmlFor='surname' className='font-medium  flex items-center absolute -top-3 left-5 px-2 text-[#0079B0] bg-white'>Surname</label>
-            <input type={'text'}  id='surname' value={surname} onChange={(e) => setSurname(e.target.value)} name='surname' className='border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white '/>
+            <input type={'text'}  id='surname' value={last_name} onChange={(e) => setSurname(e.target.value)} name='surname' className='border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white '/>
           </div>
 
           {/*Email */}

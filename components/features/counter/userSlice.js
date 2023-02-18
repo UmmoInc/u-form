@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  user: "",
+  user: [],
 }
 
 export const userSlice = createSlice({
-  name: 'user',
+  name: 'userData',
   initialState,
   reducers: {
     addUser: (state,action) => {
-        state.user = [...state.grading,action.payload] 
+        state.user.push(action.payload); 
     },
   },
 })
@@ -17,6 +17,6 @@ export const userSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { addUser } = userSlice.actions
 
-export const Items = (state) => state.user.user
+export const Items = (state) => state.userData.user
 
 export default userSlice.reducer

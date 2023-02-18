@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { RecaptchaVerifier, getAuth, signInWithPhoneNumber } from "firebase/auth";
 import { useRouter } from "next/router";
-import {  useDispatch  } from "react-redux"
+import {  useDispatch, useSelector  } from "react-redux"
 import { addToResponse } from "../../../slices/basketSlice";
+import { addUser } from "../../features/counter/userSlice";
+import { store } from "../../../middleware/store";
 
 export default function Login_Form({ users }) {
   // country code
@@ -26,7 +28,9 @@ export default function Login_Form({ users }) {
     setOtpForm(true)
   };
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); 
+  
+
 
   // const addResponseToStore = () => {
   //     const resposeStatus ={
@@ -72,6 +76,9 @@ export default function Login_Form({ users }) {
     }
   };
 
+ 
+ 
+
   //Verify OTP
   const verifyOTP = (e) => {
 
@@ -108,6 +115,7 @@ export default function Login_Form({ users }) {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
+            "identifier": token,
           },
           body: JSON.stringify(data),
         }
@@ -116,8 +124,15 @@ export default function Login_Form({ users }) {
         console.log(result);
         if (result.status === 1) {
           console.log("SUCCESS",);
-          console.log(result);
-          router.push('/home')
+          dispatch(addUser(data))
+          console.log(result.data.type);
+          let type = result.data.type
+          if (type === "register"){
+            router.push(`/${type}`)
+          } else {
+            router.push('/home')
+          }
+          
 
           const resposeStatus = {result}
 
@@ -130,21 +145,21 @@ export default function Login_Form({ users }) {
         //   res.redirect(307);
       });
 
-      const postData = async () => {
-        const data = {
-          phone_number, token
-        }
+      // const postData = async () => {
+      //   const data = {
+      //     phone_number, token
+      //   }
   
-        const response = await fetch("/api/login", {
-          method: "POST",
-          body: JSON.stringify(data),
-        });
-        return response.json();
+      //   const response = await fetch("/api/login", {
+      //     method: "POST",
+      //     body: JSON.stringify(data),
+      //   });
+      //   return response.json();
         
-      };postData().then((data) => {
-        console.log(data);
-        router.push('/home')
-      });
+      // };postData().then((data) => {
+      //   console.log(data);
+      //   router.push('/home')
+      // });
 
     }
 
