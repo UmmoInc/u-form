@@ -7,8 +7,8 @@ import {RecaptchaVerifier} from 'firebase/auth'
 //Logo
 import Logo from '../assets/Logo.png'
 
-export default function Home() {
-
+export default function Home(data) {
+  console.log(data);
   return (
 
       <div className='h-screen w-full bg-[#E6F3F9]'>
@@ -24,7 +24,7 @@ export default function Home() {
                 <Image src={Logo} width={45}  alt='Logo' priority={true} />
             </div>
             <div className=' px-4 w-full flex-grow max-w-md  '>
-                <Login_Form />
+                <Login_Form data={data} />
             </div>
       </main>
 
@@ -40,4 +40,13 @@ export default function Home() {
 }
 
 
-  
+export async function getServerSideProps (context){
+  const res = await fetch('http://ummo-digital-tester.herokuapp.com/api/v1/question/test/efdfdb19-39ee-4d63-9897-a097f11deb17');
+  const data = await res.json()
+
+  return {
+      props: {
+          data,
+      }
+  }
+}

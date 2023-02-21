@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Header_sm from '../components/Home/Header/Header_sm'
 import Home_Feed from '../components/Home/Main/Home_Feed'
@@ -10,6 +11,15 @@ import { store } from '../middleware/store';
 
 
 export default function HomeView({data}) {
+  
+
+  
+  if (typeof window !== "undefined") {
+    const getTest = JSON.parse(localStorage.getItem("data"));
+    console.log("TestDATA", getTest.data.data.section_info[0]);
+  }
+
+
 
 //Getting Store Contents
 const state = store.getState();
@@ -27,9 +37,11 @@ console.log("grade:",count);
       <nav>
         <Header_sm />
       </nav>
-     
+     {
+
+     }
       <main className=''>
-        <Home_Feed data={data}/>
+        {/* <Home_Feed data={data}/> */}
       </main>
 
       <footer className=''>
@@ -44,13 +56,13 @@ console.log("grade:",count);
 }
 
 
-export async function getStaticProps (){
-  const res = await fetch("https://ummo-digital-tester.herokuapp.com/api/v1/question/tests");
-  const data = await res.json()
+// export async function getStaticProps (){
+//   const res = await fetch("https://ummo-digital-tester.herokuapp.com/api/v1/question/tests/efdfdb19-39ee-4d63-9897-a097f11deb17");
+//   const data = await res.json()
 
-  return {
-      props: {
-          data,
-      }
-  }
-}
+//   return {
+//       props: {
+//           data,
+//       }
+//   }
+// }

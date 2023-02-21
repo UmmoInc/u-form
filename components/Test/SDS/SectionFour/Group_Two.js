@@ -14,6 +14,7 @@ function Group_Two(data) {
     const questions = data.data[3].category_info[1].question_info
     const section_name = data.data[3].title;
     const category_name = data.data[3].category_info[1].title;
+    
 
       //Device Breakpoints on Carousel
   const responsive = {
@@ -40,7 +41,9 @@ function Group_Two(data) {
   //Getting Store Contents
   const state = store.getState();
   const count = useSelector((state) => state.results.grading);
-
+  const user = useSelector((state) => state.userData.user);
+  const user_id = user[0].phone_number
+  const grade_response = count
   const dispatch = useDispatch();
   //Initializing {questionNumber}
   const [questionNumber, setQuestionNumber] = useState(1);
@@ -52,11 +55,47 @@ function Group_Two(data) {
   // Counter Effect Function to Increament Progress Bar then Reroute to next section
   function increament() {
     setQuestionNumber(questionNumber + 1);
+    
+    //Post Results
+    let value = {user_id, "test_id":"efdfdb19-39ee-4d63-9897-a097f11deb17", grade_response}
+    const sendResponse =() =>{
+    //        //Send user data to Mongodb
+    //   fetch(
+    //     "http://ummo-digital-tester.herokuapp.com/api/v1/grading/grade",
+    //     {
+    //       method: "PUT",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //         "identifier": token,
+    //       },
+    //       body: JSON.stringify(data),
+    //     }
+    //   ).then(async (response) => {
+    //     const result = await response.json()
+    //     console.log(result);
+    //     if (result.status === 1) {
+    //       console.log(result.message);
+    //       let type = result.data.type
+    //       router.push('/home')
+
+    //     }
+    //     else {
+    //       console.log("FAILED", result.message);
+    //     }
+    //     //   res.redirect(307);
+    //   });
+        console.log(value);
+    }
+
+    
 
 
     if (questionNumber === questions.length) {
       setClose(true);
       setShowLoader(true);
+      sendResponse();
+      
+
       router.push("/home");
     };
   };

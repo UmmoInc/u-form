@@ -1,18 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { RecaptchaVerifier, getAuth, signInWithPhoneNumber } from "firebase/auth";
 import { useRouter } from "next/router";
-import {  useDispatch, useSelector  } from "react-redux"
 import { addToResponse } from "../../../slices/basketSlice";
-import { addUser } from "../../features/counter/userSlice";
-import { store } from "../../../middleware/store";
 
-export default function Login_Form({ users }) {
+
+export default function Login_Form({ users,data }) {
   // country code
   const countrycode = "+268";
   // phone number state
   const [phoneNumber, setPhoneNumber] = useState(countrycode);
-  const [expandForm, setExpandForm] = useState(false);
 
   //Show OTP Form 
   const [otpForm, setOtpForm] = useState(false)
@@ -27,8 +24,13 @@ export default function Login_Form({ users }) {
   function switchForms() {
     setOtpForm(true)
   };
-
-  const dispatch = useDispatch(); 
+ 
+  console.log(data);
+  const [userData, setUserData] = useState([]);
+  useEffect(() => {
+    localStorage.setItem("user", JSON.stringify(userData))
+    localStorage.setItem("data", JSON.stringify(data))
+  })
   
 
 
@@ -124,7 +126,7 @@ export default function Login_Form({ users }) {
         console.log(result);
         if (result.status === 1) {
           console.log("SUCCESS",);
-          dispatch(addUser(data))
+          setUserData(data)
           console.log(result.data.type);
           let type = result.data.type
           if (type === "register"){
@@ -134,9 +136,7 @@ export default function Login_Form({ users }) {
           }
           
 
-          const resposeStatus = {result}
-
-          dispatch(addToResponse(resposeStatus))
+         
 
         }
         else {
@@ -258,3 +258,5 @@ export default function Login_Form({ users }) {
     </div>
   );
 }
+
+

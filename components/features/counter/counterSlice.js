@@ -1,16 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+
+
 const initialState = {
   grading: [],
 }
 
 export const counterSlice = createSlice({
-  name: 'results',
+  name: 'grade',
   initialState,
   reducers: {
     addToGrading: (state,action) => {
-        // state.grading = [...state.grading,action.payload] 
-        state.grading.push(action.payload); 
+        state.grading = [...state.grading,action.payload] 
+        // state.grading.push(action.payload); 
+
     },
   },
 })
