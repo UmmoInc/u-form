@@ -3,9 +3,10 @@ import Link from "next/link";
 import { RecaptchaVerifier, getAuth, signInWithPhoneNumber } from "firebase/auth";
 import { useRouter } from "next/router";
 import { addToResponse } from "../../../slices/basketSlice";
+import { setCookie } from "cookies-next";
 
 
-export default function Login_Form({ users,data }) {
+export default function Login_Form({ users,testData }) {
   // country code
   const countrycode = "+268";
   // phone number state
@@ -24,12 +25,13 @@ export default function Login_Form({ users,data }) {
   function switchForms() {
     setOtpForm(true)
   };
- 
-  console.log(data);
-  const [userData, setUserData] = useState([]);
+
+  const [userData, setUserData] = useState(testData);
+  
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(userData))
-    localStorage.setItem("data", JSON.stringify(data))
+    setCookie('testData', userData)
+    console.log("here is your data",testData);
   })
   
 
@@ -117,7 +119,7 @@ export default function Login_Form({ users,data }) {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
-            "identifier": token,
+            
           },
           body: JSON.stringify(data),
         }

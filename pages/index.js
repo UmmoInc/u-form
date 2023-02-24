@@ -6,8 +6,13 @@ import { authentication } from '../middleware/firebase'
 import {RecaptchaVerifier} from 'firebase/auth'
 //Logo
 import Logo from '../assets/Logo.png'
+import { saveState } from './localStorage'
+import { setCookie } from 'cookies-next'
 
 export default function Home(data) {
+
+  saveState(data);
+
   console.log(data);
   return (
 
@@ -24,7 +29,7 @@ export default function Home(data) {
                 <Image src={Logo} width={45}  alt='Logo' priority={true} />
             </div>
             <div className=' px-4 w-full flex-grow max-w-md  '>
-                <Login_Form data={data} />
+                <Login_Form  testData={data} />
             </div>
       </main>
 

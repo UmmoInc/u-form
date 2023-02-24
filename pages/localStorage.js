@@ -10,6 +10,30 @@ export const loadState = () => {
     }
 };
 
+export const loadGradeState = () => {
+  try {
+    const serialState = localStorage.getItem('gradeResponse');
+    if (serialState === null) {
+      return undefined;
+    }
+    return JSON.parse(serialState);
+  } catch (err) {
+    return undefined;
+  }
+};
+
+export const loadValue = () => {
+  try {
+    const serialState = localStorage.getItem('value');
+    if (serialState === null) {
+      return undefined;
+    }
+    return JSON.parse(serialState);
+  } catch (err) {
+    return undefined;
+  }
+};
+
 
 export const saveState = (state) => {
     try {

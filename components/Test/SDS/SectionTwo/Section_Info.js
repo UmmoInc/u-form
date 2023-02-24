@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import React from 'react'
 
-export default function Section_Info({id,sections}) {
-    const selectedSection = sections[1]
+export default function Section_Info({section}) {
+    const sectionInfo = section;
+   console.log(sectionInfo);
+    
   return (
     <div className='space-y-4 px-4 py-8'>
         
@@ -12,12 +14,12 @@ export default function Section_Info({id,sections}) {
             </div>
 
             <div className='space-y-1'>
-                <p className='font-bold'>{selectedSection.title}</p>
-                <p className=''>{selectedSection.description}</p>
+                <p className='font-bold'>{sectionInfo.title}</p>
+                <p className=''>{sectionInfo.description}</p>
             </div>
         </div>
         <div>
-            <Link href={'/test/section-two/realistic/questions'} >
+            <Link href={'/test/section-two/realistic-questions'} >
                 <button className='bg-[#0079B0]  w-full  rounded-full border-2 font-bold py-2.5 hover:bg-[#0079B0] outline-none  text-white'>Take Test
                 </button>
             </Link>

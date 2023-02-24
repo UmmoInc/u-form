@@ -2,41 +2,30 @@ import Link from 'next/link'
 import React from 'react'
 import Home_Test from '../../Test/Home_Test'
 
-export default function Home_Feed(data) {
-
+export default function Home_Feed(testData) {
  
+    console.log(testData.testData.data.data.test_info.title);
+
+     const  testInfo = testData.testData.data.data.test_info
+
+    console.log(testInfo);
   return (
     <div className='px-4 py-8 space-y-4'>
         {/*Welcome Text */}
         
         <div className='space-y-2'>
+            
             <div>
-                <ul className='flex space-x-4'>
-                    <li className=''>
-                        <p className='font-meduim text-[#606F7B] text-lg cursor-pointer'>All</p>
-                    </li>
-                    <li className=''>
-                        <p className='font-meduim text-[#96A4AD] text-lg cursor-pointer'>Forms</p>
-                    </li>
-                    <li className=''>
-                        <p className='font-meduim text-[#96A4AD] text-lg cursor-pointer'>Tests</p>
-                    </li>
-                    <li className=''>
-                        <p className='font-meduim text-[#96A4AD] text-lg cursor-pointer'>Surveys</p>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                {data.data.data.map((test) => (
-                    <div key={test.id} className='py-1'>
+                
+                    <div key={testInfo.test_id} className='py-1'>
                         <Home_Test 
-                            key={test.id}
-                            _id={test.id} 
-                            title={test.title} 
-                            description={test.description}
+                            key={testInfo.test_id}
+                            _id={testInfo.test_id} 
+                            title={testInfo.title} 
+                            description={testInfo.description}
                         />
                     </div>
-                ))}
+               
                     
             
             </div> 
