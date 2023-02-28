@@ -35,7 +35,7 @@ export default function EnterprisingQuestions({section_info}) {
 
   function option_1() {
     const response = {
-        "category_name":categoryTitle,"section_name":sectionTitle, "option_id":questionInfo[questionNumber-1].options[0].id, "question_id":questionInfo[questionNumber-1].question_id
+        "category_name":categoryTitle,"section_name":sectionTitle, "option_id":questionInfo[questionNumber-1].options[1].id, "question_id":questionInfo[questionNumber-1].question_id
       }
     gradeState.push(response)
     localStorage.setItem("gradeResponse", JSON.stringify(gradeState))

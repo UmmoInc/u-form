@@ -8,7 +8,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { loadGradeState } from "../../../../pages/localStorage";
 
-function GroupOneQuestions({ section_info, user }) {
+function GroupTwoQuestions({ section_info, user }) {
   let gradeState = loadGradeState();
 
   const [questionNumber, setQuestionNumber] = useState(1);
@@ -55,7 +55,7 @@ function GroupOneQuestions({ section_info, user }) {
 
   function option_1() {
     const response = {
-      "category_name":categoryTitle,"section_name":sectionTitle, "option_id":questionInfo[questionNumber-1].options[0].id, "question_id":questionInfo[questionNumber-1].question_id
+      "category_name":categoryTitle,"section_name":sectionTitle, "option_id":questionInfo[questionNumber-1].options[1].id, "question_id":questionInfo[questionNumber-1].question_id
     }
     gradeState.push(response);
     localStorage.setItem("gradeResponse", JSON.stringify(gradeState));
@@ -63,28 +63,28 @@ function GroupOneQuestions({ section_info, user }) {
 
   function option_2(params) {
     const response = {
-      "category_name":categoryTitle,"section_name":sectionTitle, "option_id":questionInfo[questionNumber-1].options[0].id, "question_id":questionInfo[questionNumber-1].question_id
+      "category_name":categoryTitle,"section_name":sectionTitle, "option_id":questionInfo[questionNumber-1].options[2].id, "question_id":questionInfo[questionNumber-1].question_id
     }
     gradeState.push(response);
     localStorage.setItem("gradeResponse", JSON.stringify(gradeState));
   }
   function option_3(params) {
     const response = {
-      "category_name":categoryTitle,"section_name":sectionTitle, "option_id":questionInfo[questionNumber-1].options[0].id, "question_id":questionInfo[questionNumber-1].question_id
+      "category_name":categoryTitle,"section_name":sectionTitle, "option_id":questionInfo[questionNumber-1].options[3].id, "question_id":questionInfo[questionNumber-1].question_id
     }
     gradeState.push(response);
     localStorage.setItem("gradeResponse", JSON.stringify(gradeState));
   }
   function option_4(params) {
     const response = {
-      "category_name":categoryTitle,"section_name":sectionTitle, "option_id":questionInfo[questionNumber-1].options[0].id, "question_id":questionInfo[questionNumber-1].question_id
+      "category_name":categoryTitle,"section_name":sectionTitle, "option_id":questionInfo[questionNumber-1].options[4].id, "question_id":questionInfo[questionNumber-1].question_id
     }
     gradeState.push(response);
     localStorage.setItem("gradeResponse", JSON.stringify(gradeState));
   }
   function option_5(params) {
     const response = {
-      "category_name":categoryTitle,"section_name":sectionTitle, "option_id":questionInfo[questionNumber-1].options[0].id, "question_id":questionInfo[questionNumber-1].question_id
+      "category_name":categoryTitle,"section_name":sectionTitle, "option_id":questionInfo[questionNumber-1].options[5].id, "question_id":questionInfo[questionNumber-1].question_id
     }
     gradeState.push(response);
     localStorage.setItem("gradeResponse", JSON.stringify(gradeState));
@@ -172,4 +172,4 @@ function GroupOneQuestions({ section_info, user }) {
   );
 }
 
-export default GroupOneQuestions;
+export default GroupTwoQuestions;

@@ -8,13 +8,10 @@ import dynamic from "next/dynamic";
 import { loadValue } from "./localStorage";
 import Response_Form from "../components/Test/SDS/ResponseForm";
 
-const ClientComponent = dynamic(
-  () => import("../components/client/ClientComponent"),
-  {
-    // Do not import in server side
-    ssr: false,
-  }
-);
+const ClientComponent = dynamic(() => import("../components/client/SendResponse/SendComponent"), {
+  // Do not import in server side
+  ssr: false,
+})
 
 export default function response() {
   
@@ -31,7 +28,7 @@ export default function response() {
       </nav>
 
       <main className=" flex justify-center">
-        <Response_Form />
+        <ClientComponent />
       </main>
 
       <footer className="">

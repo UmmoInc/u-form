@@ -1,13 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Login_Form from '../components/Auth/Login/Login_Form'
-import Header_sm from '../components/Home/Header/Header_sm'
+import KYCForm from '../../../components/Test/SDS/TestInfo/KYCForm'
+
 
 //Logo
-import Logo from '../assets/Logo.png'
-import Register_Form from '../components/Auth/Register/Register_Form'
+import Logo from '../../../assets/Logo.png'
 
-export default function Register() {
+export default function KYC() {
 
   return (
 
@@ -24,7 +23,7 @@ export default function Register() {
                 <Image src={Logo} width={45} objectFit='contain' />
             </div>
             <div className=' px-4 w-full flex-grow max-w-md  '>
-                <Register_Form />
+                <KYCForm />
             </div>
       </main>
 
