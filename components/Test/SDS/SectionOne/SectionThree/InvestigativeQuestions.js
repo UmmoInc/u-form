@@ -7,7 +7,7 @@ import { loadGradeState } from "../../../../../pages/localStorage";
 
 
 
-export default function investigativeQuestions({section_info}) {
+export default function InvestigativeQuestions({section_info}) {
 
   let gradeState = loadGradeState()
   
