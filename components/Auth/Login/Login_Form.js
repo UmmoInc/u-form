@@ -188,7 +188,7 @@ export default function Login_Form({ users,testData }) {
               <div>
                 {verifying ? <button
 
-                  className="bg-[#0079B0] opacity-60 w-full outline-none py-2  font-medium rounded-xl tracking-wider text-[#E6F3F9] active:bg-gray-800"
+                  className="bg-[#0079B0] opacity-60 w-full outline-none py-2  tracking-wider h-[50px]  font-medium rounded-3xl text-[#E6F3F9]"
                 >
                   <p>VERIFYING...</p>
                 </button>

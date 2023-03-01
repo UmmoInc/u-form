@@ -27,7 +27,7 @@ export default function response() {
         <Header_sm />
       </nav>
 
-      <main className=" flex justify-center">
+      <main className=" flex justify-center pt-24">
         <ClientComponent />
       </main>
 
