@@ -7,8 +7,11 @@ import Loader_Image from "../../../../assets/1490.gif";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { loadGradeState } from "../../../../pages/localStorage";
+import dynamic from "next/dynamic";
+import ClientComponent from "../../../client/SendResponse/SendComponent";
 
-function GroupTwoQuestions({ section_info, user }) {
+
+function ConventionalQuestions({ section_info, user }) {
   let gradeState = loadGradeState();
 
   const [questionNumber, setQuestionNumber] = useState(1);
@@ -16,7 +19,7 @@ function GroupTwoQuestions({ section_info, user }) {
   const sectionTitle = section_info.title;
   const sectionId = section_info.section_id;
   const testId = section_info.test_id;
-  const category_info = section_info.category_info[1];
+  const category_info = section_info.category_info[5];
   const categoryTitle = category_info.title;
   const questionInfo = category_info.question_info;
 
@@ -40,7 +43,7 @@ function GroupTwoQuestions({ section_info, user }) {
       
     localStorage.setItem("value", JSON.stringify(value));
       
-      router.push('/test/section-four/artistic-questions')
+      router.push('../../../../response')
       
     } else setQuestionNumber(questionNumber + 1);
   }
@@ -182,4 +185,4 @@ function GroupTwoQuestions({ section_info, user }) {
   );
 }
 
-export default GroupTwoQuestions;
+export default ConventionalQuestions;

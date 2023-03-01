@@ -40,7 +40,7 @@ function GroupOneQuestions({ section_info, user }) {
       
     localStorage.setItem("value", JSON.stringify(value));
       
-      router.push('/test/section-four/group-two-questions')
+      router.push('/test/section-four/investigative-questions')
       
     } else setQuestionNumber(questionNumber + 1);
   }
@@ -91,9 +91,19 @@ function GroupOneQuestions({ section_info, user }) {
   }
 
   return (
-    <div className="">
+    <div className=" space-y-8">
+      <div className="">
+      <div className="w-full justify-center flex flex-col items-center space-y-2">
+        <p className="text-[#0079B0] font-semibold text-lg tracking-wider">
+          QUESTION
+        </p>
+        <p className="text-[#0079B0] font-normal tracking-widest text-lg ">
+          {questionNumber}/{questionInfo.length}
+        </p>
+      </div>
+    </div>
       <div className=" flex mx-4">
-        <div className="bg-white border w-96  rounded-xl py-8 px-4 tracking-wider space-y-8">
+        <div className="bg-white border w-96  rounded-3xl py-8 px-4 tracking-wider space-y-8">
           <div>
             <div className="space-y-2 h-32">
               <p className="text-[#8794A1] font-light`">{categoryTitle}</p>
@@ -108,7 +118,7 @@ function GroupOneQuestions({ section_info, user }) {
                   increament();
                   option_0();
                 }}
-                className="border-2 rounded-xl outline-none  border-[#0079B0] text-[#0079B0] w-24 py-1"
+                className="h-[45px] rounded-3xl outline-none text-[#E6F3F9]  bg-[#0079B0]  w-full py-1"
               >
                 1
               </button>
@@ -118,7 +128,7 @@ function GroupOneQuestions({ section_info, user }) {
                   increament();
                   option_1();
                 }}
-                className="border-2 rounded-xl outline-none  border-[#0079B0] text-[#0079B0] w-24 py-1"
+                className="h-[45px] rounded-3xl outline-none text-[#E6F3F9]  bg-[#0079B0]  w-full py-1"
               >
                 2
               </button>
@@ -128,7 +138,7 @@ function GroupOneQuestions({ section_info, user }) {
                   increament();
                   option_2();
                 }}
-                className="border-2 rounded-xl outline-none  border-[#0079B0] text-[#0079B0] w-24 py-1"
+                className="h-[45px] rounded-3xl outline-none text-[#E6F3F9]  bg-[#0079B0]  w-full py-1 "
               >
                 3
               </button>
@@ -140,7 +150,7 @@ function GroupOneQuestions({ section_info, user }) {
                   increament();
                   option_3();
                 }}
-                className="border-2 rounded-xl outline-none  border-[#0079B0] text-[#0079B0] w-24 py-1"
+                className="h-[45px] rounded-3xl outline-none text-[#E6F3F9]  bg-[#0079B0]  w-full py-1"
               >
                 4
               </button>
@@ -150,7 +160,7 @@ function GroupOneQuestions({ section_info, user }) {
                   increament();
                   option_4();
                 }}
-                className="border-2 rounded-xl outline-none  border-[#0079B0] text-[#0079B0] w-24 py-1"
+                className="h-[45px] rounded-3xl outline-none text-[#E6F3F9]  bg-[#0079B0]  w-full py-1"
               >
                 5
               </button>
@@ -160,7 +170,7 @@ function GroupOneQuestions({ section_info, user }) {
                   increament();
                   option_5();
                 }}
-                className="border-2 rounded-xl outline-none  border-[#0079B0] text-[#0079B0] w-24 py-1"
+                className="h-[45px] rounded-3xl outline-none text-[#E6F3F9]  bg-[#0079B0]  w-full py-1 "
               >
                 6
               </button>

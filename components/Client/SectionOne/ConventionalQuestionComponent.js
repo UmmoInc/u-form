@@ -8,7 +8,7 @@ import Question from "../../Test/SDS/SectionOne/RealisticQuestions"
 
 const ConventionalQuestionComponent = ( ) => {
     const testData = loadState()
-     const sectionTitle = testData.data.data.section_info[1]
+     const sectionTitle = testData.data.data.section_info[0]
    
   return <ConventionalQuestions section_info={sectionTitle} />
 }

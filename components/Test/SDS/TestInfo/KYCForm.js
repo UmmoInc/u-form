@@ -65,10 +65,10 @@ export default function KYCForm({ acknowledge }) {
   }
 
   return (
-    <div className="bg-white rounded-2xl px-4 md:px-8 py-8 md:py-12 shadow-sm border border-[#006592] border-opacity-25 space-y-6">
+    <div className="bg-white rounded-2xl px-4 md:px-8 py-8 md:py-12 shadow-sm border border-[#006592] border-opacity-25 space-y-6 tracking-wider">
       {/*Register */}
       <div>
-        <p className="font-[500] text-2xl text-black ">My Test Infomation</p>
+        <p className="font-semibold text-xl text-black ">My Test Infomation</p>
       </div>
 
       {/*Form */}
@@ -78,7 +78,7 @@ export default function KYCForm({ acknowledge }) {
           <div className="relative flex text-base w-full flex-col">
             <label
               htmlFor="date_of_birth"
-              className="font-medium  flex items-center absolute -top-3 left-5 px-2 text-[#0079B0] bg-white"
+              className="font-semibold flex items-center absolute -top-3 left-7 px-3 text-[#0079B0] bg-white"
             >
               Date Of Birth
             </label>
@@ -88,7 +88,7 @@ export default function KYCForm({ acknowledge }) {
               onChange={(e) => setDate_of_birth(e.target.value)}
               name="date_of_birth"
               value={date_of_birth}
-              className="border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#006592] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white "
+              className="border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-3xl h-[50px] border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white"
             />
           </div>
 
@@ -96,7 +96,7 @@ export default function KYCForm({ acknowledge }) {
           <div className="relative flex text-base w-full flex-col">
             <label
               htmlFor="email_address"
-              className="font-medium  flex items-center absolute -top-3 left-5 px-2 text-[#0079B0] bg-white"
+              className="font-semibold flex items-center absolute -top-3 left-7 px-3 text-[#0079B0] bg-white"
             >
               Email Address
             </label>
@@ -106,7 +106,7 @@ export default function KYCForm({ acknowledge }) {
               value={email_address}
               onChange={(e) => setEmail_address(e.target.value)}
               name="email_address"
-              className="border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white "
+              className="border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-3xl h-[50px] border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white"
             />
           </div>
 
@@ -114,7 +114,7 @@ export default function KYCForm({ acknowledge }) {
           <div className="relative flex text-base w-full flex-col">
             <label
               htmlFor="gender"
-              className="font-medium  flex items-center absolute -top-3 left-5 px-2 text-[#0079B0] bg-white"
+              className="font-semibold flex items-center absolute -top-3 left-7 px-3 text-[#0079B0] bg-white"
             >
               Gender
             </label>
@@ -124,13 +124,13 @@ export default function KYCForm({ acknowledge }) {
               name="gender"
               value={gender}
               onChange={(e) => setGender(e.target.value)}
-              className="border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white "
+              className="border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-3xl h-[50px] border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white "
             />
           </div>
           <div className="relative flex text-base w-full flex-col">
             <label
               htmlFor="location"
-              className="font-medium  flex items-center absolute -top-3 left-5 px-2 text-[#0079B0] bg-white"
+              className="font-semibold flex items-center absolute -top-3 left-7 px-3 text-[#0079B0] bg-white"
             >
               Location
             </label>
@@ -140,17 +140,18 @@ export default function KYCForm({ acknowledge }) {
               name="location"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              className="border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white "
+              className="border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-3xl h-[50px] border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white"
             />
           </div>
           <div>
-            <p>In School?</p>
-            <div className="flex space-x-5">
-              <div className="flex space-x-2">
-                <input type={"checkbox"} onClick={inSchool}/>
+            <p className="font-semibold flex items-center  px-6 pb-2 text-[#0079B0] bg-white">In School?</p>
+            <div className="flex space-x-5 px-6">
+              <div className="flex space-x-2 justify-center items-center">
+                <input type={"checkbox"} onClick={inSchool} className="border-2 "
+                />
                 <p>Yes</p>
               </div>
-              <div className="flex space-x-2">
+              <div className="flex space-x-2 items-center">
                 <input type={"checkbox"} onClick={offSchool}/>
                 <p>No</p>
               </div>
@@ -178,14 +179,14 @@ export default function KYCForm({ acknowledge }) {
           {/*Login Button */}
           <button
             type="submit"
-            className="bg-[#0079B0] w-full py-2 font-medium rounded-xl flex items-center justify-center text-[#E6F3F9] active:bg-gray-800"
+            className="bg-[#0079B0] outline-none w-full py-2  font-semibold rounded-3xl h-[50PX] tracking-wider text-[#E6F3F9] active:bg-gray-800 "
           >
             <p>Register </p>
           </button>
         </form>
       </div>
       {/* */}
-      <div className="font-medium text-[#0079B0] space-x-2 text-sm w-full flex justify-center cursor-pointer ">
+      <div className="font-semibold tracking-wider text-[#0079B0] space-x-2 text-sm w-full flex justify-center cursor-pointer ">
         <p className="hover:underline">Terms of Use</p>
         <p className="hover:underline">Privacy Policy</p>
       </div>

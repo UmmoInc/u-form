@@ -53,29 +53,49 @@ export default function SocialQuestions({section_info}) {
   }
 
   return (
-    <div className=" w-96 bg-white p-4 rounded-lg border">
+    <div className="space-y-8">
+    <div className="">
+      <div className="w-full justify-center flex flex-col items-center space-y-2">
+        <p className="text-[#0079B0] font-semibold text-lg tracking-wider">
+          QUESTION
+        </p>
+        <p className="text-[#0079B0] font-normal tracking-widest text-lg ">
+          {questionNumber}/{questionInfo.length}
+        </p>
+      </div>
+    </div>
+    <div className=" w-96  bg-white p-4 rounded-3xl  tracking-wider border border-[#006592] border-opacity-25">
       <div>
-        <div className="space-y-2">
-          <p className="text-[#8794A1] font-light`">{categoryTitle}</p>
-          <p className="font-semibold h-24">{questionInfo[questionNumber-1].question}</p>
+        <div className="space-y-2 tracking-wider">
+          <p className="text-[#8794A1] font-normal tracking-widest">
+            {categoryTitle}
+          </p>
+          <p className="font-semibold h-24">
+            {questionInfo[questionNumber - 1].question}
+          </p>
         </div>
       </div>
-      <div className="flex space-x-3">
-        <button className="flex w-full border-2 rounded-xl  border-[#0079B0] text-[#0079B0] py-3  outline-none white justify-center" onClick={() => {
-           
-           increament()
-            option_0()
-        }}>
-          <p>No</p>
+      <div className="flex space-x-2 tracking-wider">
+        <button
+          className="flex w-full  rounded-3xl  bg-[#0079B0]  py-3  outline-none white justify-center text-[#E6F3F9] active:bg-[#03405c] tracking-wider"
+          onClick={() => {
+            increament();
+            option_0();
+          }}
+        >
+          <p>NO</p>
         </button>
-        <button className="flex w-full border-2 rounded-xl  border-[#0079B0] text-[#0079B0] py-3 outline-none white justify-center" onClick={() => {
-            
-             increament()
-           option_1()
-        }}>
-          <p>Yes</p>
+        <button
+          className="flex w-full  rounded-3xl  bg-[#0079B0]  py-3  outline-none white justify-center text-[#E6F3F9] active:bg-[#03405c] tracking-wider"
+          onClick={() => {
+            increament();
+            option_1();
+          }}
+        >
+          <p>YES</p>
         </button>
       </div>
     </div>
+  </div>
   );
 }

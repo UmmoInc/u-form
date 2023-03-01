@@ -56,20 +56,20 @@ export default function Register_Form({ acknowledge }) {
   }
 
   return (
-    <div className="bg-white rounded-2xl px-4 md:px-8 py-8 md:py-12 shadow-sm border border-[#006592] border-opacity-25 space-y-6">
+    <div className="bg-white rounded-2xl px-4 md:px-8 py-8 md:py-12  border border-[#006592] border-opacity-25 space-y-6">
       {/*Register */}
       <div>
-        <p className="font-[500] text-2xl text-black ">Register</p>
+        <p className="font-[500] text-xl text-black tracking-wider">Register</p>
       </div>
 
       {/*Form */}
       <div>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4 tracking-wider">
           {/*First Name */}
           <div className="relative flex text-base w-full flex-col">
             <label
               htmlFor="firstName"
-              className="font-medium  flex items-center absolute -top-3 left-5 px-2 text-[#0079B0] bg-white"
+              className="font-semibold flex items-center absolute -top-3 left-7 px-3 text-[#0079B0] bg-white"
             >
               First Name
             </label>
@@ -79,7 +79,7 @@ export default function Register_Form({ acknowledge }) {
               onChange={(e) => setFirstName(e.target.value)}
               name="firstName"
               value={first_name}
-              className="border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#006592] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white "
+              className="border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-3xl h-[50px] border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white "
             />
           </div>
 
@@ -87,7 +87,7 @@ export default function Register_Form({ acknowledge }) {
           <div className="relative flex text-base w-full flex-col">
             <label
               htmlFor="surname"
-              className="font-medium  flex items-center absolute -top-3 left-5 px-2 text-[#0079B0] bg-white"
+              className="font-semibold flex items-center absolute -top-3 left-7 px-3 text-[#0079B0] bg-white"
             >
               Surname
             </label>
@@ -97,7 +97,7 @@ export default function Register_Form({ acknowledge }) {
               value={last_name}
               onChange={(e) => setSurname(e.target.value)}
               name="surname"
-              className="border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white "
+              className="border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-3xl h-[50px] border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white "
             />
           </div>
 
@@ -105,9 +105,9 @@ export default function Register_Form({ acknowledge }) {
           <div className="relative flex text-base w-full flex-col">
             <label
               htmlFor="email"
-              className="font-medium  flex items-center absolute -top-3 left-5 px-2 text-[#0079B0] bg-white"
+              className="font-semibold flex items-center absolute -top-3 left-7 px-3 text-[#0079B0] bg-white"
             >
-              Email
+              Email Address
             </label>
             <input
               type={"email"}
@@ -115,26 +115,26 @@ export default function Register_Form({ acknowledge }) {
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-xl border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white "
+              className="border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-3xl h-[50px] border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white  "
             />
           </div>
 
-          <div className="flex space-x-3 ">
+          {/* <div className="flex space-x-3 ">
             <input type={"checkbox"} />
             <p> I have read the Terms & Conditions</p>
-          </div>
+          </div> */}
 
           {/*Login Button */}
           <button
             type="submit"
-            className="bg-[#0079B0] w-full py-2 font-medium rounded-xl flex items-center justify-center text-[#E6F3F9] active:bg-gray-800"
+            className="bg-[#0079B0] w-full py-2 font-medium rounded-3xl flex items-center justify-center h-[50px] tracking-widest text-[#E6F3F9] active:bg-gray-800"
           >
-            <p>Register </p>
+            <p>REGISTER </p>
           </button>
         </form>
       </div>
       {/* */}
-      <div className="font-medium text-[#0079B0] space-x-2 text-sm w-full flex justify-center cursor-pointer ">
+      <div className="font-semibold text-[#0079B0] space-x-2  tracking-wider w-full flex justify-center cursor-pointer ">
         <p className="hover:underline">Terms of Use</p>
         <p className="hover:underline">Privacy Policy</p>
       </div>

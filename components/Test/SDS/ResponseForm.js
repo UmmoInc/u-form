@@ -24,7 +24,7 @@ export default function Response_Form({valueUser,token}) {
       const test_id = valueUser.test_id
       const grade_response = valueUser.grade_response
       let custom_grade_response = []
-      for(let i = 0; i < 240; i++){
+      for(let i = 0; i < 227; i++){
           custom_grade_response.push(grade_response[i])
           
           
@@ -66,7 +66,7 @@ export default function Response_Form({valueUser,token}) {
         if (result.status === 1) {
           console.log("SUCCESS");
           console.log(result);
-          router.push(`/home`);
+          router.push(`/result`);
         }
       });
     

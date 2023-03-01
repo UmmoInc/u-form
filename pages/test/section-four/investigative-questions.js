@@ -7,12 +7,12 @@ import dynamic from "next/dynamic"
 
   
 
-  const TestComponent = dynamic(() => import("../../../components/Client/SectionFour/GroupOneQuestions"), {
+  const TestComponent = dynamic(() => import("../../../components/Client/SectionFour/GroupTwoQuestions"), {
     // Do not import in server side
     ssr: false,
   })
 
-export default function group_one() {
+export default function group_two() {
 
   
     
@@ -27,7 +27,7 @@ export default function group_one() {
           <Header_sm />
         </nav>
         
-        <main className=" flex max-w-2xl">
+        <main className=" flex max-w-2xl pt-36">
          <TestComponent />
           
         </main>

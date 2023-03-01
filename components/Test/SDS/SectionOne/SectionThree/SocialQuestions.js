@@ -1,17 +1,16 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { loadGradeState } from "../../../../pages/localStorage";
+import { loadGradeState } from "../../../../../pages/localStorage";
 
-export default function investigativeQuestions({ section_info }) {
+export default function SocialQuestions({ section_info }) {
   let gradeState = loadGradeState();
 
   const [questionNumber, setQuestionNumber] = useState(1);
-  const [categoryNumber, setCategoryNumber] = useState(1);
 
   const sectionTitle = section_info.title;
   const sectionId = section_info.section_id;
   const testId = section_info.test_id;
-  const category_info = section_info.category_info[1];
+  const category_info = section_info.category_info[3];
   const categoryTitle = category_info.title;
   const questionInfo = category_info.question_info;
 
@@ -31,7 +30,6 @@ export default function investigativeQuestions({ section_info }) {
     gradeState.push(response);
     localStorage.setItem("gradeResponse", JSON.stringify(gradeState));
   }
-
   function option_1() {
     const response = {
       category_name: categoryTitle,
@@ -47,7 +45,7 @@ export default function investigativeQuestions({ section_info }) {
 
   function increament(params) {
     if (questionNumber === questionInfo.length) {
-      router.push("/test/section-one/artistic-questions");
+      router.push("/test/section-three/enterprising-questions");
     } else setQuestionNumber(questionNumber + 1);
   }
 
