@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 
@@ -15,6 +15,10 @@ export default function Register_Form({ acknowledge }) {
 
   const router = useRouter();
 
+  const [userData, setUserData] = useState();
+  
+  
+
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -29,7 +33,6 @@ export default function Register_Form({ acknowledge }) {
       const data = {
         first_name,
         last_name,
-        email,
         method: "token",
         type: "register",
         phone_number,
@@ -48,13 +51,16 @@ export default function Register_Form({ acknowledge }) {
         if (result.status === 1) {
           console.log("SUCCESS");
           console.log(result);
+          setUserData(data)
           router.push(`/home`);
         }
       });
     }
  
   }
-
+useEffect(() => {
+    localStorage.setItem("userData", JSON.stringify(userData))
+  })
   return (
     <div className="bg-white rounded-2xl px-4 md:px-8 py-8 md:py-12  border border-[#006592] border-opacity-25 space-y-6">
       {/*Register */}
@@ -102,7 +108,7 @@ export default function Register_Form({ acknowledge }) {
           </div>
 
           {/*Email */}
-          <div className="relative flex text-base w-full flex-col">
+          <div className="relative flex text-base w-full flex-col hidden">
             <label
               htmlFor="email"
               className="font-semibold flex items-center absolute -top-3 left-7 px-3 text-[#0079B0] bg-white"

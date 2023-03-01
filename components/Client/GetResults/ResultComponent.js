@@ -1,14 +1,15 @@
 import React from "react"
-import { loadUser } from "../../../pages/localStorage";
+import { loadUser, loadUserData } from "../../../pages/localStorage";
 import TestSummary from "../../Test/SDS/Results/TestSummary"
 
 
 
 const ClientComponent = ({reports}) => {
     const user = loadUser()
-     console.log(reports);
+    const userData = loadUserData()
+     console.log(userData);
     
-  return <TestSummary reports={reports} user={user} />
+  return <TestSummary reports={reports} user={user} userData={userData} />
 }
 
 export default ClientComponent
