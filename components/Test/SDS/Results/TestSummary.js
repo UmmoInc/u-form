@@ -430,7 +430,7 @@ export default function TestSummary({ reports, user, userData }) {
       <div className="py-8">
         <div className="App">
           <div className="App">
-            <PDFDownloadLink document={<MyDoc />} fileName="somename.pdf">
+            <PDFDownloadLink document={<MyDoc />} fileName="sds_certificate.pdf">
               {({ blob, url, loading, error }) =>
                 loading ? "Loading document..." : "Download now!"
               }

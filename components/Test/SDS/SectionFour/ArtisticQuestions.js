@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Carousel from "react-multi-carousel";
-import { useDispatch, useSelector } from "react-redux";
-import { store } from "../../../../middleware/store";
-import { addToGrading } from "../../../features/counter/counterSlice";
-import Loader_Image from "../../../../assets/1490.gif";
-import Image from "next/image";
+
 import { useRouter } from "next/router";
 import { loadGradeState } from "../../../../pages/localStorage";
 
