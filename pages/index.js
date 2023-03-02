@@ -6,7 +6,7 @@ import { authentication } from '../middleware/firebase'
 import {RecaptchaVerifier} from 'firebase/auth'
 //Logo
 import Logo from '../assets/Logo.png'
-import { saveState } from './localStorage'
+import { saveState } from '../lib/localStorage'
 import { setCookie } from 'cookies-next'
 
 export default function Home(data) {

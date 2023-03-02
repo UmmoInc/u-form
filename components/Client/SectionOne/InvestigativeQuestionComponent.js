@@ -1,12 +1,12 @@
 import React from "react"
-import { loadGradeState, loadState } from "../../../pages/localStorage"
+import { loadGradeState, loadState } from "../../../lib/localStorage"
 import InvestigativeQuestions from "../../Test/SDS/SectionOne/InvestigativeQuestions"
 
 
 
 
 
-const RealisticQuestionComponent = ( ) => {
+const RealisticQuestionComponent = ( ) => {                 
     const testData = loadState()
     
     

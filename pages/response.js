@@ -5,7 +5,7 @@ import Header_sm from "../components/Home/Header/Header_sm";
 // console.log(loadState())
 
 import dynamic from "next/dynamic";
-import { loadValue } from "./localStorage";
+import { loadValue } from "../lib/localStorage";
 import Response_Form from "../components/Test/SDS/ResponseForm";
 
 const SendComponent = dynamic(() => import("/components/Client/SendResponse/SendComponent.js"), {

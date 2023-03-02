@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import response from "../../../pages/response";
-import { loadValue } from "../../../pages/localStorage";
+import { loadValue } from "../../../lib/localStorage";
 import { async } from "@firebase/util";
 
 
