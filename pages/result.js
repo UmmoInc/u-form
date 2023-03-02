@@ -7,7 +7,7 @@ import TestSummary from '../components/Test/SDS/Results/TestSummary';
 
 import dynamic from "next/dynamic";
 
-const ClientComponent = dynamic(() => import("../components/client/GetResults/ResultComponent"), {
+const ClientComponent = dynamic(() => import("../components/client/GetResults/ResultComponent.js"), {
   // Do not import in server side
   ssr: false,
 })

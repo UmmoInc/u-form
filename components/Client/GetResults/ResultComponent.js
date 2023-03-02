@@ -4,7 +4,7 @@ import TestSummary from "../../Test/SDS/Results/TestSummary"
 
 
 
-const ClientComponent = ({reports}) => {
+const GetResults = ({reports}) => {
     const user = loadUser()
     const userData = loadUserData()
      console.log(userData);
@@ -12,4 +12,4 @@ const ClientComponent = ({reports}) => {
   return <TestSummary reports={reports} user={user} userData={userData} />
 }
 
-export default ClientComponent
+export default GetResults

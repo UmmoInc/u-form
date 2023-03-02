@@ -8,7 +8,7 @@ import dynamic from "next/dynamic";
 import { loadValue } from "./localStorage";
 import Response_Form from "../components/Test/SDS/ResponseForm";
 
-const ClientComponent = dynamic(() => import("../components/client/SendResponse/SendComponent"), {
+const ClientComponent = dynamic(() => import("../components/client/SendResponse/SendComponent.js"), {
   // Do not import in server side
   ssr: false,
 })

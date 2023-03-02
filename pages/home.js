@@ -2,13 +2,10 @@ import { async } from "@firebase/util";
 import Head from "next/head";
 import Header_sm from "../components/Home/Header/Header_sm";
 
-
-
-// console.log(loadState())
-
 import dynamic from "next/dynamic"
 
-const ClientComponent = dynamic(() => import("../components/client/ClientComponent"), 
+
+const ClientComponent = dynamic(() => import("../components/client/ClientComponent.js"), 
   // Do not import in server side
   { loading: () => <p>Loading ...</p>, ssr: false 
 })
