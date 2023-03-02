@@ -7,7 +7,7 @@ export default function SideDrawer() {
         
             <div className='p-4 -space-y-2 border-b w-full'>
               <p className='font-semibold text-[#0079B0]'>U-Form</p>
-              <p className='text-sm'>Mayibongwe Mahlalela</p>
+             
             </div>
             <div className='p-4'>
               <ul>
