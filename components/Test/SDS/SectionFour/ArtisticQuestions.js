@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { useRouter } from "next/router";
-import { loadGradeState } from "../../../../pages/localStorage";
+import { loadGradeState } from "../../../../lib/localStorage";
 
 function ArtisticQuestions({ section_info, user }) {
   let gradeState = loadGradeState();

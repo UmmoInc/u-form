@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { loadGradeState } from "../../../../pages/localStorage";
+import { loadGradeState } from "../../../../lib/localStorage";
 
 export default function ConventionalQuestions({ section_info }) {
   let gradeState = loadGradeState();

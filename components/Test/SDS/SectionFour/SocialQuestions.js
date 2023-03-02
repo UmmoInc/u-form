@@ -6,7 +6,7 @@ import { addToGrading } from "../../../features/counter/counterSlice";
 import Loader_Image from "../../../../assets/1490.gif";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { loadGradeState } from "../../../../pages/localStorage";
+import { loadGradeState } from "../../../../lib/localStorage";
 
 function SocialQuestions({ section_info, user }) {
   let gradeState = loadGradeState();
