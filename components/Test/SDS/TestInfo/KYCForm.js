@@ -88,7 +88,7 @@ export default function KYCForm({ acknowledge }) {
               onChange={(e) => setDate_of_birth(e.target.value)}
               name="date_of_birth"
               value={date_of_birth}
-              className="border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-3xl h-[50px] border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white"
+              className="border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-3xl h-[50px] border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider w-full  active:bg-white"
             />
           </div>
 
@@ -106,7 +106,7 @@ export default function KYCForm({ acknowledge }) {
               value={email_address}
               onChange={(e) => setEmail_address(e.target.value)}
               name="email_address"
-              className="border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-3xl h-[50px] border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white"
+              className="border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-3xl h-[50px] border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider w-full  active:bg-white"
             />
           </div>
 
@@ -124,7 +124,7 @@ export default function KYCForm({ acknowledge }) {
               name="gender"
               value={gender}
               onChange={(e) => setGender(e.target.value)}
-              className="border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-3xl h-[50px] border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white "
+              className="border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-3xl h-[50px] border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider w-full  active:bg-white "
             />
           </div>
           <div className="relative flex text-base w-full flex-col">
@@ -140,7 +140,7 @@ export default function KYCForm({ acknowledge }) {
               name="location"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              className="border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-3xl h-[50px] border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  active:bg-white"
+              className="border-2 pb-2 pt-3 font-bold bg-slate-50 px-8 text-sm  rounded-3xl h-[50px] border-[#0079B0] outline-none placeholder-[#B8C2CC] tracking-wider  w-full active:bg-white"
             />
           </div>
           <div>
