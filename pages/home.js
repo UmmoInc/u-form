@@ -8,9 +8,9 @@ import Header_sm from "../components/Home/Header/Header_sm";
 
 import dynamic from "next/dynamic"
 
-const ClientComponent = dynamic(() => import("../components/client/ClientComponent"), {
+const ClientComponent = dynamic(() => import("../components/client/ClientComponent"), 
   // Do not import in server side
-  ssr: false,
+  { loading: () => <p>Loading ...</p>, ssr: false 
 })
 
 export default function HomeView() {
