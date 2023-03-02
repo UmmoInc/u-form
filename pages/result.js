@@ -2,12 +2,12 @@ import React from 'react'
 import Head from "next/head";
 import clientPromise from '../lib/mongodb';
 import Header_sm from '../components/Home/Header/Header_sm';
-import TestSummary from '../components/Test/SDS/Results/TestSummary';
+
 
 
 import dynamic from "next/dynamic";
 
-const ClientComponent = dynamic(() => import("../components/client/GetResults/ResultComponent.js"), {
+const ResultComponent = dynamic(() => import("../components/client/GetResults/ResultComponent.js"), {
   // Do not import in server side
   ssr: false,
 })
@@ -34,7 +34,7 @@ export default function result({reports}) {
                 <p className='font-semibold'>SUMMARY SHEET</p>
             </div>
             <div>
-                <ClientComponent reports={reports} /> 
+                <ResultComponent reports={reports} /> 
             </div>
         </div>
             

@@ -4,7 +4,7 @@ import Response_Form from "../../Test/SDS/ResponseForm"
 
 
 
-const ClientComponent = () => {
+const SendComponent = () => {
     const value = loadValue()
     const user = loadUser()
     const token = user.token
@@ -13,4 +13,4 @@ const ClientComponent = () => {
   return <Response_Form valueUser={value} token={token} />
 }
 
-export default ClientComponent
+export default SendComponent
