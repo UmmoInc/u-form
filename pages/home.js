@@ -3,11 +3,9 @@ import Head from "next/head";
 import Header_sm from "../components/Home/Header/Header_sm";
 
 import dynamic from "next/dynamic"
+import HomePage from "../components/Pages/HomePage";
 
 
-const ClientComponent = dynamic(() => import("/components/client/ClientComponent.js"), 
-  {  ssr: false 
-})
 
 export default function HomeView() {
 
@@ -30,7 +28,7 @@ export default function HomeView() {
       
       <main className=" flex justify-center">
         <div className="max-w-2xl">
-          <ClientComponent />
+          <HomePage />
         </div>
       </main>
 
