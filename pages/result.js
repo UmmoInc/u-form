@@ -7,7 +7,7 @@ import Header_sm from '../components/Home/Header/Header_sm';
 
 import dynamic from "next/dynamic";
 
-const ResultComponent = dynamic(() => import("../components/client/GetResults/ResultComponent.js"), {
+const ResultComponent = dynamic(() => import("/components/client/GetResults/ResultComponent.js"), {
   // Do not import in server side
   ssr: false,
 })
