@@ -1,7 +1,6 @@
 import React from "react"
-import { loadState } from "../../../pages/localStorage"
+import { loadState } from "../../../lib/localStorage"
 import RealisticQuestions from "../../Test/SDS/SectionTwo/RealisticQuestions"
-import Question from "../../Test/SDS/SectionTwo/RealisticQuestions"
 
 
 

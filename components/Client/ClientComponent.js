@@ -1,5 +1,5 @@
 import React from "react"
-import { loadState } from "../../lib/localStorage"
+import { loadState } from "../../lib/localStorage";
 import Home_Feed from "../Home/Main/Home_Feed"
 
 

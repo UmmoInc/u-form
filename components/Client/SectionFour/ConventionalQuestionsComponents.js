@@ -1,10 +1,10 @@
 import React from "react";
-import { loadState } from "../../../pages/localStorage";
 import GroupTwoQuestions from "../../Test/SDS/SectionFour/GroupTwoQuestions";
 import InvestigativeQuestions from "../../Test/SDS/SectionFour/ArtisticQuestions";
 import ArtisticQuestions from "../../Test/SDS/SectionFour/ArtisticQuestions";
 import EnterprisingQuestions from "../../Test/SDS/SectionFour/EnterprisingQuestions";
 import ConventionalQuestions from "../../Test/SDS/SectionFour/ConventionalQuestions";
+import { loadState } from "../../../lib/localStorage";
 
 
 const ConventionalQuestionComponent = () => {

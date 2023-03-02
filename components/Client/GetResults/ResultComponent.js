@@ -1,5 +1,6 @@
 import React from "react"
-import { loadUser, loadUserData } from "../../../pages/localStorage";
+import { loadUser, loadUserData } from "../../../lib/localStorage"
+
 import TestSummary from "../../Test/SDS/Results/TestSummary"
 
 

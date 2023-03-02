@@ -1,5 +1,5 @@
 import React from "react"
-import { loadUser, loadValue } from "../../../pages/localStorage"
+import { loadUser, loadValue } from "../../../lib/localStorage"
 import Response_Form from "../../Test/SDS/ResponseForm"
 
 

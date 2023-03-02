@@ -1,5 +1,5 @@
 import React from "react"
-import { loadState } from "../../../pages/localStorage"
+import { loadState } from "../../../lib/localStorage"
 import RealisticQuestions from "../../Test/SDS/SectionOne/RealisticQuestions"
 import Question from "../../Test/SDS/SectionOne/RealisticQuestions"
 
